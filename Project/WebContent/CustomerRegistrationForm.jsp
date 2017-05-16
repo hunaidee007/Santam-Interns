@@ -23,27 +23,27 @@
 				
 				<tr>
 						<td>FIRST NAME&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;	&nbsp; &nbsp; &nbsp; &nbsp;<br><br></td>
-						<td> <input type="text" name="firstname" placeholder="first name" /><br /><br></td>				
+						<td> <input type="text" name="firstname" placeholder="first name" required/><br /><br></td>				
 				</tr>
 				
 				<tr>
 						<td>LAST NAME&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;	&nbsp; &nbsp; &nbsp; &nbsp;<br><br></td>
-						<td> <input type="text" name="lastname" placeholder="last name" /><br><br></td>				
+						<td> <input type="text" name="lastname" placeholder="last name" required /><br><br></td>				
 				</tr>
 				
 				<tr>
 						<td>GENDER&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;	&nbsp; &nbsp; &nbsp; &nbsp;<br><br></td>
-						<td> <input type="text" name="name" placeholder="gender" /><br><br></td>				
+						<td> <input type="text" name="name" placeholder="gender" required/><br><br></td>				
 				</tr>
 				
 				<tr>
 						<td>CONTACT NUMBER&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;	&nbsp; &nbsp; &nbsp; &nbsp;<br><br></td>
-						<td> <input type="text" name="name" placeholder="phone number" /><br><br></td>				
+						<td> <input type="text" name="name" placeholder="phone number" required /><br><br></td>				
 				</tr>
 				
 				<tr>
 						<td>EMAIL ADDRESS&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;	&nbsp; &nbsp; &nbsp; &nbsp;<br><br></td>
-						<td> <input type="text" name="name" placeholder="amos@example.com" /><br><br></td>				
+						<td> <input type="email" name="name" placeholder="amos@example.com" required /><br><br></td>				
 				</tr>
 				
 				<tr>
@@ -51,7 +51,7 @@
 						
 <!-- 					   <td><input type="text" name="name" placeholder="line1" /><br/><input type="text" name="name" placeholder="line1" /><br/><input type="text" name="name" placeholder="line1" /><br/><input type="text" name="name" placeholder="line1" /></td>
  -->						
-						<td><textarea  rows="4" cols="16.5" name="address"></textarea></td>	
+						<td><textarea  rows="4" cols="16.5" name="address" required></textarea></td>	
 										
 				</tr>
 				
