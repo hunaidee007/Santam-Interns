@@ -14,7 +14,7 @@
 <body >
 	<center>
 		<h2>Insurance Inquiry</h2>
-		<form action="InsuranceInquiry.jsp" method="post">
+		<form action="InsuranceInquiryFeedBack.jsp" method="post">
 
 			<table>
 				<tr>
@@ -34,14 +34,14 @@
 						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br> <br>
 					</td>
 					<td><input type="text" name="firstname"
-						placeholder="first name" /><br /> <br></td>
+						placeholder="first name" required/><br /> <br></td>
 				</tr>
 
 				<tr>
 					<td>MODEL&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
 						&nbsp; &nbsp; &nbsp;<br> <br>
 					</td>
-					<td><input type="text" name="lastname" placeholder="last name" /><br>
+					<td><input type="text" name="lastname" placeholder="last name" required /><br>
 						<br></td>
 				</tr>
 
@@ -49,7 +49,7 @@
 					<td>MAKE&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 						&nbsp; &nbsp;<br> <br>
 					</td>
-					<td><input type="text" name="name" placeholder="gender" /><br>
+					<td><input type="text" name="name" placeholder="gender" required /><br>
 						<br></td>
 				</tr>
 
@@ -57,7 +57,7 @@
 					<td>CURRENT COST&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
 						&nbsp; &nbsp; &nbsp; &nbsp;<br> <br>
 					</td>
-					<td><input type="text" name="name" placeholder="phone number" /><br>
+					<td><input type="text" name="name" placeholder="phone number" required/><br>
 						<br></td>
 				</tr>
 
