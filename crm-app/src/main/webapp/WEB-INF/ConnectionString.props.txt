@@ -1,0 +1,3 @@
+String url = jdbc:mysql://localhost:3306/insurance
+String Username = root
+String Password = root

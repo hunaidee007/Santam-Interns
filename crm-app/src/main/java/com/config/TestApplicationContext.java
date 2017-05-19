@@ -1,4 +1,4 @@
-package config;
+package com.config;
 
 import com.dao.CustomerDao;
 import com.impl.CustomerDaoImpl;
