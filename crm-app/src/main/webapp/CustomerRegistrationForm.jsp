@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" import="com.bean.Customer"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,7 +43,7 @@
 		<div class="col-lg-12 well">
 			<div class="row">
 				<!-- Search Form START##############################################################################################-->
-				<form action="SearchCustomerController" method="post">
+				<!-- <form action="SearchCustomerController" method="post">
 					<table align="right">
 						<tr>
 							<td><input type="text" placeholder="Enter Customer ID"
@@ -52,9 +52,11 @@
 						</tr>
 					</table>
 
-				</form>
+				</form> -->
 				<!-- Search Form END##############################################################################################-->
-				
+				<%
+					Customer customer = (Customer) session.getAttribute("customer");
+				%>
 				<form action="CustomerController" method="post">
 					<div class="col-sm-12">
 						<div class="row">
@@ -126,7 +128,10 @@
 
 						<div>
 							<center>
-								<button type="submit" class="btn btn-lg btn-info">REGISTER</button>
+								<input type="submit" class="btn btn-lg btn-info"
+									value="REGISTER" /> <input type="submit"
+									class="btn btn-lg btn-info" value="Search Customers"
+									onclick="form.action='SearchCustomerController'" />
 							</center>
 						</div>
 					</div>
