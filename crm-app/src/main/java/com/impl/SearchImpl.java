@@ -5,15 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.bean.Customer;
-import com.bean.SearchBean;
+import com.bean.SearchCustomerBean;
 import com.config.ConnectionProvider;
-import com.config.Service;
 import com.dao.SearchDao;
 
-@Service
 public class SearchImpl implements SearchDao{
 
 	Connection connection = null;
@@ -29,7 +28,7 @@ public class SearchImpl implements SearchDao{
 		return conn;
 	}
 
-	
+
 	public List<Customer> getAllCustomers() {
 		// TODO Auto-generated method stub
 		Customer cust = new Customer();
@@ -68,43 +67,93 @@ public class SearchImpl implements SearchDao{
 	}
 
 	
-	public List<Customer> getCustomerList(SearchBean searchBean) {
-		// TODO Auto-generated method stub
-		Customer cust = new Customer();
+	public List<Customer> getCustomerList(SearchCustomerBean searchCustomerBean) {
 
 		List<Customer> mylist = new ArrayList<Customer>();
+		String whereString = "";
+		if (searchCustomerBean.getSearchCustomerName() != ""){  
+			whereString = "cust_name  like '%" + searchCustomerBean.getSearchCustomerName() + "%'";
+		}
+		if (whereString != "" && searchCustomerBean.getSearchCustomerCity() != ""){ 
+			whereString = whereString + " AND ";
+		}
+		if (searchCustomerBean.getSearchCustomerCity() != ""){ 
+			whereString = whereString + " Address like '%" + searchCustomerBean.getSearchCustomerCity() + "%'"; 
+		}
+
+		if (whereString != "" && searchCustomerBean.getSearchCustomerID() != ""){ 
+			whereString = whereString + " AND ";
+		}
+		if (searchCustomerBean.getSearchCustomerID() != ""){ 
+			whereString = whereString + " id_number = '" + searchCustomerBean.getSearchCustomerID() + "'";
+		}
+
+		if (whereString != ""){
+			whereString = "SELECT * FROM customer WHERE " + whereString;
+		}
+		int custId=0;
+
+		String custName="";
+		String custAddress="";
+		String custContactNo="";
+		String custEmail="";
+		String custSurname="";
+		String custGender="";
+		String custIdNumber="";
 		try 
 		{
-			String sql = "SELECT * FROM customer WHERE custId = "+searchBean.getSearchString();
+			String sql = whereString;
+			System.out.println(whereString);
 			connection = getConnection();
 			ptmt = connection.prepareStatement(sql);
 			resultSet = ptmt.executeQuery();
-
 			while(resultSet.next())
-			{
-				cust.setCustId(resultSet.getInt("custId"));
-				cust.setCustName(resultSet.getString("cust_name"));
-				cust.setAddress(resultSet.getString("Address"));
-				cust.setContactNo(resultSet.getString("Contact_No"));
-				cust.setEmail(resultSet.getString("Email"));
-				cust.setSurname(resultSet.getString("surname"));
-				cust.setGender(resultSet.getString("gender"));
-				cust.setIdNumber(resultSet.getString("id_number"));
-
-
+			{	
+				Customer cust = new Customer();				
+				custId = resultSet.getInt("custId");
+				custName = resultSet.getString("cust_name");
+				custAddress = resultSet.getString("Address");
+				custContactNo = resultSet.getString("Contact_No");
+				custEmail=resultSet.getString("Email");
+				custSurname=resultSet.getString("surname");
+				custGender=resultSet.getString("gender");
+				custIdNumber=resultSet.getString("id_number");
+				System.out.println("Gerna in resultset" + custId);
+				cust.setCustId(custId);
+				cust.setCustName(custName);
+				cust.setAddress(custAddress);
+				cust.setContactNo(custContactNo);
+				cust.setEmail(custEmail);
+				cust.setSurname(custSurname);
+				cust.setGender(custGender);
+				cust.setIdNumber(custIdNumber);
 				mylist.add(cust);
-				//System.out.println("Searched Customer:\n"+cust.getCustName());
+
 			}
 
-		} 
+
+
+		}
 		catch (SQLException e) 
 		{
 
 			e.printStackTrace();
 		}
-		
-		//System.out.println("Searched Customer:\n"+cust.getCustName());
+
+
+
+		for (Customer customer : mylist) {
+			System.out.println("GERNA before list is returned: " + customer.getCustId()  + customer.getCustName() );
+		}
+
 		return mylist;
+
+	}
+
+	public Customer getIndividiualCustomer(SearchCustomerBean searchCustomerBean) {
+		String whereString = "SELECT * FROM customer WHERE custId=" + searchCustomerBean.getSearchCustomerKey();
+		System.out.println("Gerna sql query: " + whereString);
+		return null;
 	}
 
 }

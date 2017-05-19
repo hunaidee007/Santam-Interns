@@ -8,33 +8,45 @@
 <title>Insert title here</title>
 </head>
 <body>
-	We are here :) :) :)
+	<%!Customer cutomer;%>
 
-	<%! Customer cutomer; %>
-
-	<%! List<Customer> customerList;  %>
+	<%!List<Customer> customerList;%>
 
 	<%
-	customerList = (List<Customer>)session.getAttribute("customerList"); 
+		customerList = (List<Customer>) session.getAttribute("customerList");
 	%>
 
-	<table>
-		<%
-	for(Customer customer : customerList){
-	%>
+	<table border="1">
 		<tr>
-			<td><%=customer.getCustId() %></td>
-			<td><%=customer.getCustName() %></td>
-			<td><%=customer.getSurname() %></td>
-			<td><%=customer.getAddress() %></td>
-			<td><%=customer.getContactNo() %></td>
-			<td><%=customer.getEmail() %></td>
-			<td><%=customer.getCustId() %></td>
-			<td><%=customer.getGender() %></td>
+			<td>Customer ID</td>
+			<td>Customer Name</td>
+			<td>Customer Surname</td>
+			<td>Customer Address</td>
+			<td>Customer Phone Number</td>
+			<td>Customer Email</td>
+			<td>Customer ID Number</td>
+			<td>Customer Gender</td>
 		</tr>
 		<%
-	}
-	%>
+			for (Customer customer : customerList) {
+		%>
+		<tr>
+			<td><%=customer.getCustId()%></td>
+			<td>
+			<%!int tempCustId=0;%>
+			<% tempCustId=customer.getCustId();%>
+		
+		<a href="ReturnIndividualCustomerController?CustId=<%=tempCustId %>"><%=customer.getCustName()%></a></td>
+			<td><%=customer.getSurname()%></td>
+			<td><%=customer.getAddress()%></td>
+			<td><%=customer.getContactNo()%></td>
+			<td><%=customer.getEmail()%></td>
+			<td><%=customer.getIdNumber()%></td>
+			<td><%=customer.getGender()%></td>
+		</tr>
+		<%
+			}
+		%>
 	</table>
 
 </body>
