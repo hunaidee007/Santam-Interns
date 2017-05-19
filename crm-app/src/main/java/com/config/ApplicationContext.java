@@ -6,6 +6,11 @@ import java.util.Set;
 
 import org.reflections.Reflections;
 
+/**
+ * Application context
+ * @author s983985
+ *
+ */
 public class ApplicationContext {
 
 	static ApplicationContext _instance;
@@ -14,6 +19,7 @@ public class ApplicationContext {
 
 	public ApplicationContext() {
 		super();
+		//System.out.println("constructing application context");
 		registry = new HashMap<Type, Object>();
 	}
 
