@@ -19,7 +19,7 @@ public class ApplicationContext {
 
 	public ApplicationContext() {
 		super();
-		//System.out.println("constructing application context");
+		System.out.println("constructing application context");
 		registry = new HashMap<Type, Object>();
 	}
 
