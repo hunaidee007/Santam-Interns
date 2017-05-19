@@ -1,6 +1,4 @@
 package com.impl;
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,10 +8,8 @@ import java.util.List;
 
 import com.bean.Customer;
 import com.config.ConnectionProvider;
+import com.config.Service;
 import com.dao.CustomerDao;
-
-import config.Service;
-
 
 @Service
 public class CustomerDaoImpl implements CustomerDao{
@@ -21,16 +17,13 @@ public class CustomerDaoImpl implements CustomerDao{
 	Connection connection = null;
 	PreparedStatement ptmt = null;
 	ResultSet resultSet = null;
-	
-	
 	private Connection getConnection() throws SQLException {
 		Connection conn;
 		conn = ConnectionProvider.getInstance().getConnection();
 		return conn;
 	}
 	
-
-	public void Create(Customer customer) 
+	public void createCustomer(Customer customer) 
 	{
 		try {
 			String queryString = "INSERT INTO customer(cust_name,surname,Address,Contact_No,Email,id_number,gender) VALUES(?,?,?,?,?,?,?)";
@@ -52,15 +45,11 @@ public class CustomerDaoImpl implements CustomerDao{
 		{
 			e.printStackTrace();
 		}
-		
 	}
-
 	
-
 	public List<Customer> getAllCustomers() 
 	{
 		Customer cust = new Customer();
-		
 		List<Customer> mylist = new ArrayList<Customer>();
 		try 
 		{
@@ -71,31 +60,25 @@ public class CustomerDaoImpl implements CustomerDao{
 			
 			while(resultSet.next())
 			{
-				cust.setCustId(resultSet.getInt("custId"));
-				cust.setCustName(resultSet.getString("cust_name"));
-				cust.setAddress(resultSet.getString("Address"));
-				cust.setContactNo(resultSet.getString("Contact_No"));
-				cust.setEmail(resultSet.getString("Email"));
-				cust.setSurname(resultSet.getString("surname"));
-				cust.setGender(resultSet.getString("gender"));
-				cust.setIdNumber(resultSet.getString("id_number"));
-				
+				cust.setCustId(resultSet.getInt(1));
+				cust.setCustName(resultSet.getString(2));
+				cust.setAddress(resultSet.getString(3));
+				cust.setContactNo(resultSet.getString(4));
+				cust.setEmail(resultSet.getString(5));
+				cust.setSurname(resultSet.getString(6));
+				cust.setGender(resultSet.getString(7));
+				cust.setIdNumber(resultSet.getString(8));
 				
 				mylist.add(cust);
 			}
-			
 		} 
 		catch (SQLException e) 
 		{
-			
 			e.printStackTrace();
 		}
-		
-		
 		return mylist;
 	}
-
-
+	
 	public Customer getCustomer(Customer customer) 
 	{
 		Customer cust = null;
@@ -106,7 +89,6 @@ public class CustomerDaoImpl implements CustomerDao{
 			ptmt = connection.prepareStatement(sql);
 			ptmt.setInt(1, customer.getCustId());
 			resultSet = ptmt.executeQuery();
-			
 			
 			if(resultSet.next())
 			{		
@@ -120,9 +102,6 @@ public class CustomerDaoImpl implements CustomerDao{
 				cust.setGender(resultSet.getString("gender"));
 				cust.setIdNumber(resultSet.getString("id_number"));
 			}
-
-			
-			
 		}
 		catch(SQLException e)
 		{
@@ -131,12 +110,10 @@ public class CustomerDaoImpl implements CustomerDao{
 		
 		return cust;
 	}
-
-
+	
 	public void updateCustomer(Customer customer) 
 	{	
 		//Only update customer name can create other methods to update other fields
-		
 		try
 		{
 			String queryString = "UPDATE customer SET cust_name=? WHERE custId=?";
@@ -146,15 +123,13 @@ public class CustomerDaoImpl implements CustomerDao{
 			ptmt.setInt(2, customer.getCustId());
 			ptmt.executeUpdate();
 			System.out.println("Table Updated Successfully");
-			
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
 		}
 	}
-
-
+	
 	public void deleteCustomer(Customer customer) 
 	{
 		try
@@ -172,5 +147,4 @@ public class CustomerDaoImpl implements CustomerDao{
 			e.printStackTrace();
 		}
 	}
-
 }

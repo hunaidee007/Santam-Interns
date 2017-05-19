@@ -6,11 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+
 import com.bean.AgentBean;
 import com.config.ConnectionProvider;
+import com.config.Service;
 import com.dao.AgentDao;
-
-import config.Service;
 
 @Service
 public class AgentDaoImpl implements AgentDao{
@@ -27,47 +27,7 @@ public class AgentDaoImpl implements AgentDao{
 		conn = ConnectionProvider.getConnection();
 		return conn;
 	}
-
-	public void Create(AgentBean user) {
-		try
-		{
-			String sql = "INSERT INTO users (username, password, firstname, lastname) VALUES VALUES(?,?,?,?,?)";
-			connection = getConnection();
-			ptmt = connection.prepareStatement(sql);
-			ptmt.setString(1, user.getUsername());
-			ptmt.setString(2, user.getPassword());
-			ptmt.setString(3, user.getFirstName());
-			ptmt.setString(4, user.getLastName());
-			ptmt.executeUpdate();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
-	}
-
-	public List<AgentBean> getAllAgents() {
-
-		return null;
-	}
-
-	public AgentBean getAgent(AgentBean user) {
-
-		String sql = "SELECT FROM users Username and password Where username =? ";
-
-		return null;
-	}
-
-	public void updateAgent(AgentBean user) {
-
-
-	}
-
-
-	public void deleteAgent(AgentBean user) {
-
-
-	}
+	
 	public static boolean validate(AgentBean agentBean){
 		boolean status=false;
 		try{
@@ -86,7 +46,6 @@ public class AgentDaoImpl implements AgentDao{
 					con.close();
 				}
 				if (ptmt != null) {
-
 					ptmt.close();
 				} 
 			}
@@ -95,5 +54,30 @@ public class AgentDaoImpl implements AgentDao{
 			}
 		}
 		return status;
+	}
+
+	public void create(AgentBean agent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List<AgentBean> getAllAgents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public AgentBean getAgent(AgentBean agent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void updateAgent(AgentBean agent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void deleteAgent(AgentBean agent) {
+		// TODO Auto-generated method stub
+		
 	}
 }

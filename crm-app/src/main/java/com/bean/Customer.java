@@ -7,17 +7,12 @@ public class Customer {
 	private String Address; 
 	private String ContactNo;
 	private String Email;
-	
 	//**********************
 	private String gender;
 	private String surname;
 	private String idNumber;	
 	
-	public Customer()
-	{
-		
-	}
-	
+	public Customer(){}
 	public Customer(String custName, String address,String contactNo, String email, String gender, String surname,String idNumber) 
 	{
 		this.custName = custName;
@@ -27,10 +22,7 @@ public class Customer {
 		this.idNumber = idNumber;
 		this.Address = address;
 		this.surname = surname;
-		
 	}
-	
-	
 	public Customer(int custId, String custName, String address,String contactNo, String email, String gender, String surname,String idNumber) 
 	{
 		this.custId = custId;
@@ -41,12 +33,7 @@ public class Customer {
 		this.idNumber = idNumber;
 		this.Address = address;
 		this.surname = surname;
-		
 	}
-	//
-	
-	
-	
 	public int getCustId() {
 		return custId;
 	}
@@ -95,5 +82,4 @@ public class Customer {
 	public void setIdNumber(String idNumber) {
 		this.idNumber = idNumber;
 	}
-
 }

@@ -27,9 +27,9 @@ public class ConnectionProvider {
 			try
 			{
 				String driver = "com.mysql.jdbc.Driver";
-				/*String url ="jdbc:mysql://localhost:3306/insurance";
-				String user = "root";
-				String password = "root";*/
+				//String url ="jdbc:mysql://localhost:3306/insurance";
+				//String user = "root";
+				//String password = "";
 				Class.forName(driver);
 				con = DriverManager.getConnection(url,user,password);
 					
@@ -43,8 +43,6 @@ public class ConnectionProvider {
 				System.out.println(sqe.getMessage());
 			}
 		}
-		
-		
 		return con;
 	}
 	
