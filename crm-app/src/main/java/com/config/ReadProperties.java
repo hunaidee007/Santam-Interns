@@ -17,7 +17,8 @@ public class ReadProperties {
 	public ReadProperties(){
 	  
        String homePath=System.getenv("CRM_HOME");
-       MyFile = new File(homePath+"ConnectionString.props.txt");
+      // MyFile = new File(homePath+"ConnectionString.props.txt");
+       MyFile = new File("C:\\CRM_HOME\\ConnectionString.props.txt");
 		
 		try {
 			InStream = new FileInputStream(MyFile);

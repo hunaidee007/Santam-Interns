@@ -32,7 +32,7 @@ public class AgentDaoImpl implements AgentDao{
 		boolean status=false;
 		try{
 			con=ConnectionProvider.getConnection();
-			ps=con.prepareStatement("select username, password from agent where username=? and password=?");
+			ps=con.prepareStatement("select Username, Password from agent where Username=? and Password=?");
 			ps.setString(1,agentBean.getUsername());
 			ps.setString(2,agentBean.getPassword());
 			ResultSet rs=ps.executeQuery();
