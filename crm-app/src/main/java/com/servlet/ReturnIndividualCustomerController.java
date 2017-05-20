@@ -35,11 +35,16 @@ public class ReturnIndividualCustomerController extends HttpServlet {
 		SearchImpl searchImpl = new SearchImpl();
 		customer = searchImpl.getIndividiualCustomer(searchCustomerBean);
 		
+		
+		
 		HttpSession session = request.getSession();
 		session.setAttribute("customer", customer);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/DisplayIndividualCustomer.jsp");
 		dispatcher.forward(request, response);
+		
+		/*RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/DisplayIndividualCustomer.jsp");
+		dispatcher.forward(request, response);*/
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
