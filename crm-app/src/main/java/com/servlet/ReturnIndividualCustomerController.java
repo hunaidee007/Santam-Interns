@@ -25,12 +25,8 @@ public class ReturnIndividualCustomerController extends HttpServlet {
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-
-		System.out.println("YOU ARRIVED IN RETURNINDIVIDUALCUSTOMERCONTROLLER");
-
 		Customer customer = new Customer();
-		System.out.println((request.getParameter("param1")));
-		int custID= Integer.parseInt(request.getParameter("CustId"));
+			int custID= Integer.parseInt(request.getParameter("CustId"));
 		SearchCustomerBean searchCustomerBean = new SearchCustomerBean(custID);
 		SearchImpl searchImpl = new SearchImpl();
 		customer = searchImpl.getIndividiualCustomer(searchCustomerBean);
@@ -39,7 +35,8 @@ public class ReturnIndividualCustomerController extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("customer", customer);
-
+//		System.out.println("GERNA in REturnIndividualCsutomerController"+ customer.getAddress());
+	
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/DisplayIndividualCustomer.jsp");
 		dispatcher.forward(request, response);
 		

@@ -30,7 +30,6 @@ public class SearchImpl implements SearchDao{
 
 
 	public List<Customer> getAllCustomers() {
-		// TODO Auto-generated method stub
 		Customer cust = new Customer();
 
 		List<Customer> mylist = new ArrayList<Customer>();
@@ -66,7 +65,7 @@ public class SearchImpl implements SearchDao{
 		return mylist;
 	}
 
-	
+
 	public List<Customer> getCustomerList(SearchCustomerBean searchCustomerBean) {
 
 		List<Customer> mylist = new ArrayList<Customer>();
@@ -91,42 +90,25 @@ public class SearchImpl implements SearchDao{
 		if (whereString != ""){
 			whereString = "SELECT * FROM customer WHERE " + whereString;
 		}
-		int custId=0;
 
-		String custName="";
-		String custAddress="";
-		String custContactNo="";
-		String custEmail="";
-		String custSurname="";
-		String custGender="";
-		String custIdNumber="";
 		try 
 		{
 			String sql = whereString;
-			System.out.println(whereString);
+			//			System.out.println(whereString);
 			connection = getConnection();
 			ptmt = connection.prepareStatement(sql);
 			resultSet = ptmt.executeQuery();
 			while(resultSet.next())
 			{	
 				Customer cust = new Customer();				
-				custId = resultSet.getInt("custId");
-				custName = resultSet.getString("cust_name");
-				custAddress = resultSet.getString("Address");
-				custContactNo = resultSet.getString("Contact_No");
-				custEmail=resultSet.getString("Email");
-				custSurname=resultSet.getString("surname");
-				custGender=resultSet.getString("gender");
-				custIdNumber=resultSet.getString("id_number");
-				System.out.println("Gerna in resultset" + custId);
-				cust.setCustId(custId);
-				cust.setCustName(custName);
-				cust.setAddress(custAddress);
-				cust.setContactNo(custContactNo);
-				cust.setEmail(custEmail);
-				cust.setSurname(custSurname);
-				cust.setGender(custGender);
-				cust.setIdNumber(custIdNumber);
+				cust.setCustId(resultSet.getInt("custId"));
+				cust.setCustName(resultSet.getString("cust_name"));
+				cust.setAddress(resultSet.getString("Address"));
+				cust.setContactNo(resultSet.getString("Contact_No"));
+				cust.setEmail(resultSet.getString("Email"));
+				cust.setSurname(resultSet.getString("surname"));
+				cust.setGender(resultSet.getString("gender"));
+				cust.setIdNumber(resultSet.getString("id_number"));
 				mylist.add(cust);
 
 			}
@@ -142,9 +124,9 @@ public class SearchImpl implements SearchDao{
 
 
 
-		for (Customer customer : mylist) {
+		/*	for (Customer customer : mylist) {
 			System.out.println("GERNA before list is returned: " + customer.getCustId()  + customer.getCustName() );
-		}
+		}*/
 
 		return mylist;
 
@@ -152,8 +134,33 @@ public class SearchImpl implements SearchDao{
 
 	public Customer getIndividiualCustomer(SearchCustomerBean searchCustomerBean) {
 		String whereString = "SELECT * FROM customer WHERE custId=" + searchCustomerBean.getSearchCustomerKey();
-		System.out.println("Gerna sql query: " + whereString);
-		return null;
-	}
+		String sql = whereString;		
 
+		Customer cust = null;
+		try {
+			connection = getConnection();
+			ptmt = connection.prepareStatement(sql);
+			resultSet = ptmt.executeQuery();
+			cust = new Customer();	
+			while(resultSet.next())
+			{	
+
+				cust.setCustId(resultSet.getInt("custId"));
+				cust.setCustName(resultSet.getString("cust_name"));
+				cust.setAddress(resultSet.getString("Address"));
+				cust.setContactNo(resultSet.getString("Contact_No"));
+				cust.setEmail(resultSet.getString("Email"));
+				cust.setSurname(resultSet.getString("surname"));
+				cust.setGender(resultSet.getString("gender"));
+				cust.setIdNumber(resultSet.getString("id_number"));
+
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//		System.out.println("Gerna sql query: " + whereString);
+		return cust;
+	}
 }
