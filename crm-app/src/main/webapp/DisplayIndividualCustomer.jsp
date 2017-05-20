@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
-<%@ page import="com.bean.Customer" %>	
+
+<%@ page import="com.bean.Customer"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,24 +63,20 @@
 						</div>
 						<div class="form-group">
 							<label>Address</label>
-							<textarea rows="3"
-								class="form-control" name="txtAreaAddress"><%=customer.getAddress() %></textarea>
+							<textarea rows="3" class="form-control" name="txtAreaAddress"><%=customer.getAddress() %></textarea>
 						</div>
 						<div class="row">
 							<div class="col-sm-4 form-group">
-								<label>City</label> <input type="text"
-									Value="TODO"  class="form-control"
-									name="txtCity" />
+								<label>City</label> <input type="text" Value="TODO"
+									class="form-control" name="txtCity" />
 							</div>
 							<div class="col-sm-4 form-group">
-								<label>State</label> <input type="text"
-									Value="TODO"  class="form-control"
-									name="txtState" />
+								<label>State</label> <input type="text" Value="TODO"
+									class="form-control" name="txtState" />
 							</div>
 							<div class="col-sm-4 form-group">
-								<label>Zip</label> <input type="text"
-									Value="TODO"  class="form-control"
-									name="txtCode" />
+								<label>Zip</label> <input type="text" Value="TODO"
+									class="form-control" name="txtCode" />
 							</div>
 						</div>
 						<div class="row">
@@ -118,9 +114,7 @@
 						<div>
 							<center>
 								<input type="submit" class="btn btn-lg btn-info"
-									value="REGISTER" /> <input type="submit"
-									class="btn btn-lg btn-info" value="Search Customers"
-									onclick="form.action='SearchCustomerController'" />
+									value="REGISTER" /> 
 							</center>
 						</div>
 					</div>
