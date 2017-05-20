@@ -35,6 +35,7 @@
 			<td>
 			<%!int tempCustId=0;%>
 			<% tempCustId=customer.getCustId();%>
+			<%=tempCustId %>
 		
 		<a href="ReturnIndividualCustomerController?CustId=<%=tempCustId %>"><%=customer.getCustName()%></a></td>
 			<td><%=customer.getSurname()%></td>
