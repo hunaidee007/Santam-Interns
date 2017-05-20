@@ -8,10 +8,8 @@ import java.util.List;
 
 import com.bean.VehicleInquiryBean;
 import com.config.ConnectionProvider;
-import com.config.Service;
 import com.dao.VehicleInsuranceDao;
 
-@Service
 public class VehicleInsuranceDaoImp implements VehicleInsuranceDao {
 
 	Connection connection = null;
@@ -22,48 +20,32 @@ public class VehicleInsuranceDaoImp implements VehicleInsuranceDao {
 		conn = ConnectionProvider.getInstance().getConnection();
 		return conn;
 	}
-	
-	public void createVehicleInquiry(VehicleInquiryBean vehicleInquiry) {
+	public String createVehicleInquiry(VehicleInquiryBean vehicleInquiry) {
+		String msg = null;
 		try {
-			String queryString = "INSERT INTO vehicleInsurance(cust_name,surname,Address,Contact_No,Email,id_number,gender) VALUES(?,?,?,?,?,?,?)";
+			String queryString = "INSERT INTO autopolicy(productId,VehicleModel,VehicleReg,VehicleMake,ManufactureDate,Price,vehicleType,periodRequired,EnquiryID) VALUES(?,?,?,?,?,?,?,?,?)";
 			connection = getConnection();
 			ptmt = connection.prepareStatement(queryString);
-			
-			ptmt.setString(1, vehicleInquiry.getMake());
-			ptmt.setString(2,vehicleInquiry.getManufacturedDate());
-			ptmt.setString(3, vehicleInquiry.getModel());
-			ptmt.setString(4,vehicleInquiry.getPeriodRequired());
-			ptmt.setString(5, vehicleInquiry.getVehicleRegistration());
-			ptmt.setString(6, vehicleInquiry.getVehicleType());
-			ptmt.setLong(7, (long) vehicleInquiry.getValue());
+			ptmt.setInt(1,  1);
+			ptmt.setString(2, vehicleInquiry.getModel());
+			ptmt.setString(3,vehicleInquiry.getVehicleRegistration());
+			ptmt.setString(4, vehicleInquiry.getMake());
+			ptmt.setString(5,vehicleInquiry.getManufacturedDate());
+			ptmt.setInt(6, (int) vehicleInquiry.getValue());
+			ptmt.setString(7, vehicleInquiry.getVehicleType());
+			ptmt.setString(8, vehicleInquiry.getPeriodRequired());
+			ptmt.setInt(9, vehicleInquiry.getEnquiryId());
+			System.out.println("CONNECTED: "+connection);
 			
 			ptmt.executeUpdate();
-			System.out.println("Data Added Successfully");
+		    msg = "New Record has been added successfully";
 		} 
+		
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
 		}	
+		System.out.println("CONNECTED: "+connection);
+		return msg;
 	}
-
-	public List<VehicleInquiryBean> getVehicleInquiry() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public VehicleInquiryBean getCustomer(VehicleInquiryBean vehicleInsurance) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void updateVehicleInquiry(VehicleInquiryBean vehicleInsurance) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void deleteVehicleInquiry(VehicleInquiryBean vehicleInsurance) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }

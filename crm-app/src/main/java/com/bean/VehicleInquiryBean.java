@@ -1,6 +1,6 @@
 package com.bean;
 
-public class VehicleInquiryBean {
+public class VehicleInquiryBean  extends InsuranceInquiry{
 	private String vehicleRegistration;
 	private String model;
 	private String make;
