@@ -31,7 +31,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="CustomerRegistrationForm.jsp">Customer
 						Registration</a></li>
-				<li><a href="InsuranceInquiryAuto.jsp">Auto Insurance</a></li>
+				<li><a href="AutoCoverage.jsp">Auto Insurance</a></li>
 				<li><a href="InsuranceInquiryProperty.jsp">Property
 						Insurance</a></li>
 				<li><a href="#">Reports</a></li>
@@ -117,12 +117,12 @@
 								name="txtEmail" />
 						</div>
 						<center>
-							<div>
-								<label class="checkbox-inline"> <input type="checkbox"
-									value="Auto">Auto Insurance
-								</label> <label class="checkbox-inline"> <input type="checkbox"
-									value="Property">Property Insurance
-								</label>
+						<div class="row">
+							<div class="col-sm-4 form-group">
+								<label>Select Insurance Type </label> <br> 
+								<label class="radio-inline"> <input type="radio" name="insuranceType" value = "auto">Auto Insurance</label>
+								<label class="radio-inline"> <input type="radio" name="insuranceType" value = "property">Property Insurance</label>
+							</div> 
 							</div>
 						</center>
 

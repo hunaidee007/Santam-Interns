@@ -1,32 +1,30 @@
 package com.bean;
 
 public class VehicleCoverageBean {
-	String coverage_id;
-	String name;
-	String product_id;
+	String coverageId;
+	//String name;
+	///String productId;/// to be changed to enquiry id
+	Integer enquiryId;
+	String coverageName;
 	
-	public VehicleCoverageBean(String coverage_id, String name,
-			String product_id) {
-		this.coverage_id = coverage_id;
-		this.name = name;
-		this.product_id = product_id;
+	public String getCoverageName() {
+		return coverageName;
 	}
-	public String getCoverage_id() {
-		return coverage_id;
+	public void setCoverageName(String coverageName) {
+		this.coverageName = coverageName;
 	}
-	public void setCoverage_id(String coverage_id) {
-		this.coverage_id = coverage_id;
+	public String getCoverageId() {
+		return coverageId;
 	}
-	public String getName() {
-		return name;
+	public void setCoverageId(String coverageId) {
+		this.coverageId = coverageId;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public Integer getEnquiryId() {
+		return enquiryId;
 	}
-	public String getProduct_id() {
-		return product_id;
+	public void setEnquiryId(Integer enquiryId) {
+		this.enquiryId = enquiryId;
 	}
-	public void setProduct_id(String product_id) {
-		this.product_id = product_id;
-	}
+	
+	
 }

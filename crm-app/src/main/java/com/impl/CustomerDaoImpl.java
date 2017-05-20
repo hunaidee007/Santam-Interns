@@ -4,9 +4,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.bean.Customer;
+import com.bean.InsuranceInquiry;
 import com.config.ConnectionProvider;
 import com.config.Service;
 import com.dao.CustomerDao;
@@ -46,6 +48,32 @@ public class CustomerDaoImpl implements CustomerDao{
 			e.printStackTrace();
 		}
 	}
+	public void storeEnquiryData(Customer customer, InsuranceInquiry inquiry ){
+		
+		try {
+			String queryString = "INSERT INTO insuranceenquiry(EnquiryDate,agentId,customerId,productId) VALUES(?,?,?,?)";
+			connection = getConnection();
+			ptmt = connection.prepareStatement(queryString);
+			
+			ptmt.setString(1, "62989140");
+			ptmt.setInt(2, inquiry.getAgentId());
+			ptmt.setInt(3, customer.getCustId());
+			ptmt.setInt(4, inquiry.getProductId());
+			
+			ptmt.executeUpdate();
+			System.out.println("Data Added Successfully");
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+			
+		
+		
+		
+		
+	}
+	
 	
 	public List<Customer> getAllCustomers() 
 	{
@@ -146,5 +174,30 @@ public class CustomerDaoImpl implements CustomerDao{
 		{
 			e.printStackTrace();
 		}
+	}
+
+	public InsuranceInquiry getEnquiry(Customer customer) {
+		InsuranceInquiry enquiry = null;
+		try
+		{
+			String sql = "SELECT * FROM INSURANCEENQUIRY WHERE customerId = ?";
+			connection = getConnection();
+			ptmt = connection.prepareStatement(sql);
+			ptmt.setInt(1, customer.getCustId());
+			resultSet = ptmt.executeQuery();
+				
+				enquiry = new InsuranceInquiry();
+				enquiry.setCustomerId(resultSet.getInt("custId"));
+				enquiry.setEnquiryId(resultSet.getInt("EnquiryId"));
+				enquiry.setEnquiryDate(resultSet.getDate("enquiryDate"));
+				enquiry.setProductId(resultSet.getInt("productid"));
+				enquiry.setAgentId(resultSet.getInt("agentId"));
+			
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return enquiry;
 	}
 }

@@ -21,6 +21,9 @@
 
 </head>
 <body>
+<%
+String inputEnquiryId = (String) session.getAttribute("enquiryId");
+%>
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -37,7 +40,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="CustomerRegistrationForm.jsp">Customer
 						Registration</a></li>
-				<li><a href="InsuranceInquiryAuto.jsp">Auto Insurance</a></li>
+				<li><a href="AutoCoverage.jsp">Auto Insurance</a></li>
 				<li><a href="InsuranceInquiryProperty.jsp">Property
 						Insurance</a></li>
 				<li><a href="#">Reports</a></li>
@@ -51,61 +54,69 @@
 	<div class="container">
 		<div class="col-lg-12 well">
 			<div class="row">
-				<form action="VehicleInsurance" method="post">
+				<form action="VehicleInsuranceServlet" method="post">
 					<div class="col-sm-12">
 						<div class="row">
-							<div class="col-sm-2 form-group">
+							<div class="col-sm-6 form-group">
 								<label>Vehicle Registration</label> <input type="text"
 									name="vehicleRegistration"
-									placeholder="Enter Vehicle Registration" class="form-control">
+									placeholder="Enter Vehicle Registration" class="form-control" required>
 							</div>
 							<div class="col-sm-6 form-group">
 								<label>Model</label> <input type="text" name="model"
-									placeholder="Enter Vehicle Model" class="form-control">
+									placeholder="Enter Vehicle Model" class="form-control" required>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>Make</label> <input type="text" name="make"
-									placeholder="Enter Vehicle Make" class="form-control">
+									placeholder="Enter Vehicle Make" class="form-control" required>
 							</div>
 
 							<div class="col-sm-6 form-group">
 								<label>Value</label> <input type="text" name="value"
-									placeholder="Enter Value of the Vehicle" class="form-control">
+									placeholder="Enter Value of the Vehicle" class="form-control" required>
 							</div>
 
 							<div class="col-sm-6 form-group">
 								<label>Manufacturing Date</label> <input type="text" name="date"
-									placeholder="Enter Manufacturing Date" class="form-control">
+									placeholder="Enter Manufacturing Date" class="form-control" required>
 							</div>
+							
+							<div class="col-sm-6 form-group">
+								<input type="hidden" name="enquiryId" value="<%=inputEnquiryId %>" class="form-control"  >
+							</div>
+							
 						</div>
 						<br />
-						<div class="col-sm-6 form-group">
+						
+						<div class="row">
+							<div class="col-sm-6 form-group">
 
-							<fieldset class="radiogroup">
-								<legend>Select delivery method</legend>
+							<fieldset class="radiogroup2">
+								<legend>Select Vehicle Type</legend>
 								<ul class="radio">
-									<li><input type="radio" name="period" id="del1"
-										value="sixMonths" /><label>Six Months</label></li>
-									<li><input type="radio" name="period" id="del2"
-										value="twelveMonths" /><label for="del2">Twelve
-											Months</label></li>
+									<li><input type="radio" name="type"
+										value="twoWheels" /><label>Two wheels</label></li>
+									<li><input type="radio" name="type" 
+										value="fourWheels" /><label >Four
+											Wheels</label></li>
 								</ul>
 							</fieldset>
 						</div>
-						<div class="row">
 							<div class="col-sm-6 form-group">
-								<fieldset class="radiogrou">
-									<legend>Select Vehicle Type</legend>
-									<ul class="radio">
-										<li><input type="radio" name="wheels" id="del3"
-											value="twoWheels" /><label for="del3">Two Wheels</label></li>
-										<li><input type="radio" name="wheels" id="del4"
-											value="fourWheels" /><label for="del4">Four Wheels</label></li>
-									</ul>
-								</fieldset>
+								<fieldset class="radiogroup1">
+								<legend>Select Period Required</legend>
+								<ul class="radio">
+									<li><input type="radio" name="period"
+										value="sixMonths" /><label>Six Months</label></li>
+									<li><input type="radio" name="period" 
+										value="twelveMonths" /><label >Twelve
+											Months</label></li>
+								</ul>
+							</fieldset>
 							</div>
+						
 						</div>
 					</div>
 					<br /> <br /> <br />
