@@ -1,6 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bean.PropertyBean;
 import com.bean.PropertyCoveragesBean;
+import com.dao.PropertyCoverageDao;
 import com.dao.PropertyInsuranceDao;
 import com.impl.CoverageImpl;
 import com.impl.PropertyInsuranceDaoImp;
@@ -32,15 +35,35 @@ public class PropertyInquiry extends HttpServlet {
 		String propertyAaddress = request.getParameter("propertyAddress");
 		String period = request.getParameter("period");
 		String security = request.getParameter("security");
+		String id_number = request.getParameter("idNumber");
 		
 		
-		PropertyBean pbean = new PropertyBean(propertyValue,constructionType,fireProtectionEquipment,buildingContentProtection,naturalDisasterProtection,burglarBars,propertyAaddress,period, security); 
-		PropertyInsuranceDao propertyInfo = new PropertyInsuranceDaoImp(); 
-
-		propertyInfo.createPropertyInsurance(pbean);
+		String dwell = request.getParameter("dwell");
+		String personal = request.getParameter("personal");
+		String liability = request.getParameter("liability");
+		String medical = request.getParameter("medical");
+		String additional = request.getParameter("additional");
+		
+		
+		PropertyBean pbean = new PropertyBean(propertyValue,constructionType,fireProtectionEquipment,buildingContentProtection,
+				naturalDisasterProtection,burglarBars,propertyAaddress,period, security,id_number); 
+		
+		PropertyCoveragesBean coverages = new PropertyCoveragesBean(dwell,personal,liability,medical,additional,id_number);
+	
+		
+		PropertyCoverageDao propertyInfo = new PropertyInsuranceDaoImp();
+		propertyInfo.createProperty(pbean,coverages);
+		System.out.println(" ID number " + id_number);
+		
+		
+		
+		
+		RequestDispatcher rdr = request.getRequestDispatcher("CustomerRegistrationForm.jsp");
+		rdr.forward(request, response);
+		
 		
 		//Coverage
-		
+		/*
 		String dwell = request.getParameter("dwell");
 		String personal = request.getParameter("personal");
 		String liability = request.getParameter("liability");
@@ -63,9 +86,9 @@ public class PropertyInquiry extends HttpServlet {
 		if(additional==null){
 			additional = "";
 		}
-		
-		PropertyCoveragesBean cbean = new PropertyCoveragesBean(dwell,personal,liability,medical,additional);
-		CoverageImpl coverageInfo = new CoverageImpl();
+		*/
+		//PropertyCoveragesBean cbean = new PropertyCoveragesBean(dwell,personal,liability,medical,additional);
+		//CoverageImpl coverageInfo = new CoverageImpl();
 		//coverageInfo.createCoverages(cbean);
 
 		
@@ -85,6 +108,14 @@ public class PropertyInquiry extends HttpServlet {
 		System.out.println(additional);
 		System.out.println(security);
 */
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	

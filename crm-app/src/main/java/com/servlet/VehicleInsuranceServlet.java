@@ -46,6 +46,7 @@ public class VehicleInsuranceServlet extends HttpServlet {
 		coverageBean.setComprehensive(request.getParameter("comprehensive"));
 		coverageBean.setId_number(request.getParameter("idNumber"));
 		String idNumber = request.getParameter("idNumber");
+		
 		VehicleInsuranceDaoImp vehicleInsuranceDaoImp = new VehicleInsuranceDaoImp();
 		vehicleInsuranceDaoImp.createVehicleInquiry(vehicleInquiryBean, coverageBean);
 		System.out.println(" ID number " + idNumber);

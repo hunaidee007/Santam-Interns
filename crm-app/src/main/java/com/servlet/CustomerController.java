@@ -62,6 +62,7 @@ public class CustomerController extends HttpServlet {
 			rd.forward(request, response);
 		}
 		if(insuranceType.equals("property")){
+			request.getSession().setAttribute("idNumber", idNumber);
 			//request.getSession().setAttribute("enquiryId", inquiry.getEnquiryId());
 			RequestDispatcher rdr = request.getRequestDispatcher("InsuranceInquiryProperty.jsp");
 			rdr.forward(request, response);
