@@ -8,7 +8,34 @@ public class VehicleInquiryBean  extends InsuranceInquiry{
 	private String vehicleType;
 	private String periodRequired;
 	private String manufacturedDate;
+	private String id_number;
 	
+	
+	public VehicleInquiryBean()
+	{
+		
+	}
+	
+	
+	
+	public VehicleInquiryBean(String vehicleRegistration, String model,
+			String make, double value, String vehicleType,
+			String periodRequired, String manufacturedDate, String id_number) {
+		this.vehicleRegistration = vehicleRegistration;
+		this.model = model;
+		this.make = make;
+		this.value = value;
+		this.vehicleType = vehicleType;
+		this.periodRequired = periodRequired;
+		this.manufacturedDate = manufacturedDate;
+		this.id_number = id_number;
+	}
+	public String getId_number() {
+		return id_number;
+	}
+	public void setId_number(String id_number) {
+		this.id_number = id_number;
+	}
 	public String getManufacturedDate() {
 		return manufacturedDate;
 	}

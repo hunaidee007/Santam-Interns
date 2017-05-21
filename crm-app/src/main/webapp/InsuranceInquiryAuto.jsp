@@ -29,8 +29,9 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li ><a href="CustomerRegistrationForm.jsp">Customer Registration</a></li>
-        <li><a href="InsuranceInquiryAuto.jsp">Auto Insurance</a></li>
-        <li><a href="InsuranceInquiryProperty.jsp">Property Insurance</a></li>
+       <!--   <li><a href="InsuranceInquiryAuto.jsp">Auto Insurance</a></li> 
+        <li><a href="InsuranceInquiryProperty.jsp">Property Insurance</a></li> -->
+        
         <li><a href="#">Reports</a></li>
       </ul>
     </div>

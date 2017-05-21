@@ -21,9 +21,9 @@
 
 </head>
 <body>
-<%
-String inputEnquiryId = (String) session.getAttribute("enquiryId");
-%>
+	<%
+		String inputEnquiryId = (String) session.getAttribute("enquiryId");
+	%>
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -40,9 +40,10 @@ String inputEnquiryId = (String) session.getAttribute("enquiryId");
 			<ul class="nav navbar-nav">
 				<li><a href="CustomerRegistrationForm.jsp">Customer
 						Registration</a></li>
-				<li><a href="AutoCoverage.jsp">Auto Insurance</a></li>
+				<!--  <li><a href="AutoCoverage.jsp">Auto Insurance</a></li>
 				<li><a href="InsuranceInquiryProperty.jsp">Property
 						Insurance</a></li>
+						-->
 				<li><a href="#">Reports</a></li>
 			</ul>
 		</div>
@@ -60,7 +61,8 @@ String inputEnquiryId = (String) session.getAttribute("enquiryId");
 							<div class="col-sm-6 form-group">
 								<label>Vehicle Registration</label> <input type="text"
 									name="vehicleRegistration"
-									placeholder="Enter Vehicle Registration" class="form-control" required>
+									placeholder="Enter Vehicle Registration" class="form-control"
+									required>
 							</div>
 							<div class="col-sm-6 form-group">
 								<label>Model</label> <input type="text" name="model"
@@ -75,48 +77,49 @@ String inputEnquiryId = (String) session.getAttribute("enquiryId");
 
 							<div class="col-sm-6 form-group">
 								<label>Value</label> <input type="text" name="value"
-									placeholder="Enter Value of the Vehicle" class="form-control" required>
+									placeholder="Enter Value of the Vehicle" class="form-control"
+									required>
 							</div>
 
 							<div class="col-sm-6 form-group">
 								<label>Manufacturing Date</label> <input type="text" name="date"
-									placeholder="Enter Manufacturing Date" class="form-control" required>
+									placeholder="Enter Manufacturing Date" class="form-control"
+									required>
 							</div>
-							
+
 							<div class="col-sm-6 form-group">
-								<input type="hidden" name="enquiryId" value="<%=inputEnquiryId %>" class="form-control"  >
+								<input type="hidden" name="enquiryId"
+									value="<%=inputEnquiryId%>" class="form-control">
 							</div>
-							
+
 						</div>
 						<br />
-						
+
 						<div class="row">
 							<div class="col-sm-6 form-group">
 
-							<fieldset class="radiogroup2">
-								<legend>Select Vehicle Type</legend>
-								<ul class="radio">
-									<li><input type="radio" name="type"
-										value="twoWheels" /><label>Two wheels</label></li>
-									<li><input type="radio" name="type" 
-										value="fourWheels" /><label >Four
-											Wheels</label></li>
-								</ul>
-							</fieldset>
-						</div>
+								<fieldset class="radiogroup2">
+									<legend>Select Vehicle Type</legend>
+									<ul class="radio">
+										<li><input type="radio" name="type" value="twoWheels" /><label>Two
+												wheels</label></li>
+										<li><input type="radio" name="type" value="fourWheels" /><label>Four
+												Wheels</label></li>
+									</ul>
+								</fieldset>
+							</div>
 							<div class="col-sm-6 form-group">
 								<fieldset class="radiogroup1">
-								<legend>Select Period Required</legend>
-								<ul class="radio">
-									<li><input type="radio" name="period"
-										value="sixMonths" /><label>Six Months</label></li>
-									<li><input type="radio" name="period" 
-										value="twelveMonths" /><label >Twelve
-											Months</label></li>
-								</ul>
-							</fieldset>
+									<legend>Select Period Required</legend>
+									<ul class="radio">
+										<li><input type="radio" name="period" value="sixMonths" /><label>Six
+												Months</label></li>
+										<li><input type="radio" name="period"
+											value="twelveMonths" /><label>Twelve Months</label></li>
+									</ul>
+								</fieldset>
 							</div>
-						
+
 						</div>
 					</div>
 					<br /> <br /> <br />

@@ -63,7 +63,7 @@
 						</div>
 						<div class="form-group">
 							<label>Address</label>
-							<textarea rows="3" class="form-control" name="txtAreaAddress"><%=customer.getAddress() %></textarea>
+							<textarea rows="3" class="form-control" name="txtAreaAddress"><%//=customer.getAddress() %></textarea>
 						</div>
 						<div class="row">
 							<div class="col-sm-4 form-group">

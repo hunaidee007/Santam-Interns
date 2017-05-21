@@ -73,7 +73,7 @@
 			<% tempCustId=customer.getCustId();%>
 			<a href="ReturnIndividualCustomerController?CustId=<%=tempCustId %>"><%=customer.getCustName()%></a></td>
 			<td><%=customer.getSurname()%></td>
-			<td><%=customer.getAddress()%></td>
+			<td><%//=customer.getAddress()%></td>
 			<td><%=customer.getContactNo()%></td>
 			<td><%=customer.getEmail()%></td>
 			<td><%=customer.getIdNumber()%></td>

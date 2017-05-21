@@ -44,7 +44,7 @@ public class SearchImpl implements SearchDao{
 			{
 				cust.setCustId(resultSet.getInt("custId"));
 				cust.setCustName(resultSet.getString("cust_name"));
-				cust.setAddress(resultSet.getString("Address"));
+				//cust.setAddress(resultSet.getString("Address"));
 				cust.setContactNo(resultSet.getString("Contact_No"));
 				cust.setEmail(resultSet.getString("Email"));
 				cust.setSurname(resultSet.getString("surname"));
@@ -103,7 +103,7 @@ public class SearchImpl implements SearchDao{
 				Customer cust = new Customer();				
 				cust.setCustId(resultSet.getInt("custId"));
 				cust.setCustName(resultSet.getString("cust_name"));
-				cust.setAddress(resultSet.getString("Address"));
+				//cust.setAddress(resultSet.getString("Address"));
 				cust.setContactNo(resultSet.getString("Contact_No"));
 				cust.setEmail(resultSet.getString("Email"));
 				cust.setSurname(resultSet.getString("surname"));
@@ -147,7 +147,7 @@ public class SearchImpl implements SearchDao{
 
 				cust.setCustId(resultSet.getInt("custId"));
 				cust.setCustName(resultSet.getString("cust_name"));
-				cust.setAddress(resultSet.getString("Address"));
+				//cust.setAddress(resultSet.getString("Address"));
 				cust.setContactNo(resultSet.getString("Contact_No"));
 				cust.setEmail(resultSet.getString("Email"));
 				cust.setSurname(resultSet.getString("surname"));

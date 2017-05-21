@@ -1,7 +1,7 @@
 package com.config;
 
 import com.dao.CustomerDao;
-import com.impl.CustomerDaoImpl;
+import com.impl.CustomerDaoImp;
 
 public class TestApplicationContext {
 
@@ -11,19 +11,18 @@ public class TestApplicationContext {
 	 * @throws InstantiationException
 	 */
 	public static void main(String[] args) throws InstantiationException,
-			IllegalAccessException {
+	IllegalAccessException {
 		// TODO Auto-generated method stub
 
 		System.out.println("Hi");
 		CustomerDao customerDaoImpl = ApplicationContext
-				.getInstance(CustomerDaoImpl.class);
+				.getInstance(CustomerDaoImp.class);
 
 		System.out.println(customerDaoImpl);
 
 		CustomerDao customerDaoImpl1 = ApplicationContext
-				.getInstance(CustomerDaoImpl.class);
+				.getInstance(CustomerDaoImp.class);
 
 		System.out.println(customerDaoImpl1);
 	}
-
 }
