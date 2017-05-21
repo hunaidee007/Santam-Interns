@@ -42,6 +42,8 @@ public class CustomerController extends HttpServlet {
 		CustomerDaoImp imp = new CustomerDaoImp();
 		imp.createCustomer(cust, add);
 
+		
+
 		//String myAddress = concat.AddressConCat(address, city, state, postalCode);
 		//Customer custBean = new Customer(custName, myAddress, phoneNo, email, gender, surname, idNumber);
 		//CustomerDao myDao = ApplicationContext.getInstance(CustomerDaoImpl.class); 
@@ -54,14 +56,15 @@ public class CustomerController extends HttpServlet {
 		//   System.out.println("Print  "+ inquiry.getAgentId());
 
 		if(insuranceType.equals("auto")){
-			request.getSession().setAttribute("enquiryId", inquiry.getEnquiryId());
+			request.getSession().setAttribute("idNumber", idNumber);
+			//request.getSession().setAttribute("enquiryId", inquiry.getEnquiryId());
 			RequestDispatcher rd = request.getRequestDispatcher("AutoCoverage.jsp");
 			rd.forward(request, response);
 		}
 		if(insuranceType.equals("property")){
 			//request.getSession().setAttribute("enquiryId", inquiry.getEnquiryId());
-			RequestDispatcher rd = request.getRequestDispatcher("InsuranceInquiryProperty.jsp");
-			rd.forward(request, response);
+			RequestDispatcher rdr = request.getRequestDispatcher("InsuranceInquiryProperty.jsp");
+			rdr.forward(request, response);
 		}
 		
 		

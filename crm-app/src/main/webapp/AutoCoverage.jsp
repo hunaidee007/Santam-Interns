@@ -22,7 +22,8 @@
 </head>
 <body>
 	<%
-		String inputEnquiryId = (String) session.getAttribute("enquiryId");
+		String idNo = (String) session.getAttribute("idNumber");
+	String inputEnquiryId = (String) session.getAttribute("enquiryId");
 	%>
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
@@ -91,6 +92,15 @@
 								<input type="hidden" name="enquiryId"
 									value="<%=inputEnquiryId%>" class="form-control">
 							</div>
+								<div class="col-sm-6 form-group">
+								<input type="hidden" name="enquiryId"
+									value="<%=inputEnquiryId%>" class="form-control">
+							</div>
+								</div>
+								<div class="col-sm-6 form-group">
+								<input type="hidden" name="idNumber"
+									value="<%=idNo%>" class="form-control">
+							</div>
 
 						</div>
 						<br />
@@ -140,7 +150,7 @@
 
 							<div class="col-sm-6 form-group">
 								<label>Physical Damage &nbsp;&nbsp;&nbsp;<input
-									type="checkbox" name="physical" value="physicalDamage"
+									type="checkbox" name="physicalDamage" value="physicalDamage"
 									class="btn btn-lg btn-info"></label>
 							</div>
 						</div>
@@ -148,21 +158,21 @@
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>Personal Injury&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-									type="checkbox" name="vehicle" value="personalInjury"
+									type="checkbox" name="personalInjury" value="personalInjury"
 									class="btn btn-lg btn-info"></label>
 							</div>
 
 							<div class="col-sm-6 form-group">
 								<label>Liability
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-									type="checkbox" name="vehicle" value="liability"
+									type="checkbox" name="liability" value="liability"
 									class="btn btn-lg btn-info">
 								</label>
 							</div>
 
 							<div class="col-sm-6 form-group">
 								<label>Comprehensive &nbsp;&nbsp;&nbsp;<input
-									type="checkbox" name="vehicle" value="comprehensive"
+									type="checkbox" name="comprehensive" value="comprehensive"
 									class="btn btn-lg btn-info"></label>
 							</div>
 						</div>

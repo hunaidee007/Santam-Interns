@@ -1,10 +1,10 @@
 package com.bean;
 
-public class VehicleInquiryBean  extends InsuranceInquiry{
+public class VehicleInquiryBean  {
 	private String vehicleRegistration;
 	private String model;
 	private String make;
-	private double value;
+	private int value;
 	private String vehicleType;
 	private String periodRequired;
 	private String manufacturedDate;
@@ -19,7 +19,7 @@ public class VehicleInquiryBean  extends InsuranceInquiry{
 	
 	
 	public VehicleInquiryBean(String vehicleRegistration, String model,
-			String make, double value, String vehicleType,
+			String make, int value, String vehicleType,
 			String periodRequired, String manufacturedDate, String id_number) {
 		this.vehicleRegistration = vehicleRegistration;
 		this.model = model;
@@ -60,10 +60,10 @@ public class VehicleInquiryBean  extends InsuranceInquiry{
 	public void setMake(String make) {
 		this.make = make;
 	}
-	public double getValue() {
+	public int getValue() {
 		return value;
 	}
-	public void setValue(double value) {
+	public void setValue(int value) {
 		this.value = value;
 	}
 	public String getVehicleType() {

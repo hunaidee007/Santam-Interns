@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 21, 2017 at 02:18 PM
+-- Generation Time: May 21, 2017 at 04:07 PM
 -- Server version: 5.7.11
 -- PHP Version: 5.6.18
 
@@ -53,7 +53,19 @@ INSERT INTO `address` (`address_id`, `street`, `city`, `state`, `zip`, `id_numbe
 (24, ' \r\n							', '', '', '', ''),
 (25, ' \r\n							', '', '', '', ''),
 (26, ' \r\n							', '', '', '', ''),
-(27, ' \r\n							', '', '', '', '');
+(27, ' \r\n							', '', '', '', ''),
+(28, ' \r\n							', '', '', '', ''),
+(29, ' \r\n							', '', '', '', ''),
+(30, 'FF123 Town Two \r\n							', 'Cape Town', 'Westaert', '3454', '398328'),
+(31, ' a\r\n							', 'a', 'a', 'a', '9121212'),
+(32, ' 111\r\n							', '1111', '111', '111', '1111'),
+(33, ' dsggg\r\n							', 'gsdg', 'dsgg', '564', '44444'),
+(34, ' \r\n			gfhgfghf				', 'ghfghj', 'fghgf', '76', '564'),
+(35, ' \r\n					4353		', '345', '3445', '3454', '1111'),
+(36, ' \r\n							dfhhfdh', 'dfh', 'fdh', '6566', '565'),
+(37, ' \r\n				sdfsdfsdf		d	', 'dsdf', 'sdfdfs', 'dfssdf', '876'),
+(38, ' \r\n							', '', '', '', ''),
+(39, ' \r\n							dfsfd', 'sdfsdfsdf', 'fdssf', '4554', '345');
 
 -- --------------------------------------------------------
 
@@ -84,13 +96,21 @@ INSERT INTO `agent` (`AgentID`, `FirstName`, `LastName`, `Username`, `Password`)
 
 CREATE TABLE `autocoverage` (
   `auto_coverageId` int(5) NOT NULL,
-  `Collision` varchar(100) NOT NULL,
-  `Physical_Damage` varchar(100) NOT NULL,
-  `Personal_Injury` varchar(100) NOT NULL,
-  `Liability` varchar(100) NOT NULL,
-  `Comprehensive` varchar(100) NOT NULL,
+  `Collision` varchar(100) DEFAULT NULL,
+  `Physical_Damage` varchar(100) DEFAULT NULL,
+  `Personal_Injury` varchar(100) DEFAULT NULL,
+  `Liability` varchar(100) DEFAULT NULL,
+  `Comprehensive` varchar(100) DEFAULT NULL,
   `id_number` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `autocoverage`
+--
+
+INSERT INTO `autocoverage` (`auto_coverageId`, `Collision`, `Physical_Damage`, `Personal_Injury`, `Liability`, `Comprehensive`, `id_number`) VALUES
+(1, 'collision', NULL, NULL, NULL, 'comprehensive', '646'),
+(2, 'collision', NULL, NULL, 'liability', NULL, '345');
 
 -- --------------------------------------------------------
 
@@ -106,8 +126,17 @@ CREATE TABLE `autopolicy` (
   `ManufactureDate` varchar(50) NOT NULL,
   `Price` int(10) NOT NULL,
   `vehicleType` varchar(50) NOT NULL,
+  `periodRequired` varchar(50) NOT NULL,
   `id_number` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `autopolicy`
+--
+
+INSERT INTO `autopolicy` (`autoPolicyId`, `VehicleModel`, `VehicleReg`, `VehicleMake`, `ManufactureDate`, `Price`, `vehicleType`, `periodRequired`, `id_number`) VALUES
+(1, 'ghgh', 'ghgf', 'ghfgf', 'bvbvg', 45, 'twoWheels', 'sixMonths', '646'),
+(2, 'gfgf', 'dfgdfg', 'gfgf', 'fd', 3445, 'twoWheels', 'twelveMonths', '345');
 
 -- --------------------------------------------------------
 
@@ -153,21 +182,14 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`custId`, `cust_name`, `surname`, `Contact_No`, `Email`, `id_number`, `gender`) VALUES
-(105, 'q', 'q', '1111', '111111', '1111', 'qqq'),
 (106, 'a', 'a', '0825915433', 'emp@gmail.com', '911012', 'male'),
 (107, 'Jujs', 'GG', '0780485335', 'jklh@gm.com', '98378234', 'Female'),
 (108, 'eminem', 'eminem', '0825915433', 'eminem123@gmail.com', '87998821', 'Male'),
-(121, '', '', '', '', '', ''),
-(122, '', '', '', '', '', ''),
-(123, '', '', '', '', '', ''),
-(124, '', '', '', '', '', ''),
-(125, '', '', '', '', '', ''),
-(126, '', '', '', '', '', ''),
-(127, '', '', '', '', '', ''),
-(128, '', '', '', '', '', ''),
-(129, '', '', '', '', '', ''),
-(130, '', '', '', '', '', ''),
-(131, '', '', '', '', '', '');
+(138, 'gfh', 'hgfhf', 'ghj', 'ghjh', '564', 'ghjg'),
+(140, 'hgfh', 'dfhf', 'gdfg', 'dfg', '565', 'fdgd'),
+(141, 'sdfd', 'sdfd', '788778', 'ghggh', '876', 'dfg'),
+(142, '', '', '', '', '', ''),
+(143, 'fsdfsdf', 'dfsds', '4545', 'gfdg', '345', 'dff');
 
 -- --------------------------------------------------------
 
@@ -338,7 +360,7 @@ ALTER TABLE `propertypolicy`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `address_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `agent`
 --
@@ -348,17 +370,17 @@ ALTER TABLE `agent`
 -- AUTO_INCREMENT for table `autocoverage`
 --
 ALTER TABLE `autocoverage`
-  MODIFY `auto_coverageId` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `auto_coverageId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `autopolicy`
 --
 ALTER TABLE `autopolicy`
-  MODIFY `autoPolicyId` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `autoPolicyId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `custId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `custId` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 --
 -- AUTO_INCREMENT for table `insuranceenquiry`
 --

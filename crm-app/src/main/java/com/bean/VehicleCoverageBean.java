@@ -9,10 +9,11 @@ public class VehicleCoverageBean {
 	private String comprehensive;
 	private String personalInjury;
 	
+	public VehicleCoverageBean(){}
 	public VehicleCoverageBean(String id_number, String collision,
 			String physicalDamage, String liability, String comprehensive,
 			String personalInjury) {
-		super();
+		
 		this.id_number = id_number;
 		this.collision = collision;
 		this.physicalDamage = physicalDamage;
