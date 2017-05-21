@@ -20,10 +20,9 @@ public class CustomerDaoImp implements CustomerDao{
 
 
 	private Connection getConnection() throws SQLException {
-		Connection conn;
-		ConnectionProvider.getInstance();
-		conn = ConnectionProvider.getConnection();
-		return conn;
+		connection = ConnectionProvider.getInstance().getConnection();
+		return connection;
+
 	}
 
 	public void createCustomer(Customer customer, Address address) 
