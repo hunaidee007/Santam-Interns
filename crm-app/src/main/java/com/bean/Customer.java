@@ -4,35 +4,39 @@ public class Customer {
 	
 	private int custId;
 	private String custName;
-	private String Address; 
 	private String ContactNo;
 	private String Email;
-	//**********************
 	private String gender;
 	private String surname;
-	private String idNumber;	
 	
-	public Customer(){}
-	public Customer(String custName, String address,String contactNo, String email, String gender, String surname,String idNumber) 
+	
+	
+	
+	public Customer()
 	{
-		this.custName = custName;
-		this.gender = gender;
-		this.Email = email;
-		this.ContactNo = contactNo;
-		this.idNumber = idNumber;
-		this.Address = address;
-		this.surname = surname;
+		
 	}
-	public Customer(int custId, String custName, String address,String contactNo, String email, String gender, String surname,String idNumber) 
-	{
+	
+	public Customer( String custName, String contactNo,
+			String email, String gender, String surname, String idNumber) {
+		this.custName = custName;
+		ContactNo = contactNo;
+		Email = email;
+		this.gender = gender;
+		this.surname = surname;
+		this.idNumber = idNumber;
+	}
+	
+	
+	public Customer(int custId, String custName, String contactNo,
+			String email, String gender, String surname, String idNumber) {
 		this.custId = custId;
 		this.custName = custName;
+		ContactNo = contactNo;
+		Email = email;
 		this.gender = gender;
-		this.Email = email;
-		this.ContactNo = contactNo;
-		this.idNumber = idNumber;
-		this.Address = address;
 		this.surname = surname;
+		this.idNumber = idNumber;
 	}
 	public int getCustId() {
 		return custId;
@@ -45,12 +49,6 @@ public class Customer {
 	}
 	public void setCustName(String custName) {
 		this.custName = custName;
-	}
-	public String getAddress() {
-		return Address;
-	}
-	public void setAddress(String address) {
-		Address = address;
 	}
 	public String getContactNo() {
 		return ContactNo;
@@ -82,4 +80,8 @@ public class Customer {
 	public void setIdNumber(String idNumber) {
 		this.idNumber = idNumber;
 	}
+	private String idNumber;
+	
+	
+
 }
