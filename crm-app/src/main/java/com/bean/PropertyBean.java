@@ -11,8 +11,53 @@ public class PropertyBean {
 	private String burglarBars;
 	private String period;
 	private String security;
+	private String id_number;
 
 	
+	public PropertyBean()
+	{
+		
+	}
+	
+	public PropertyBean( String constructionType,
+			String fireProtectionEquipment, String buildingContentProtection,
+			String naturalDisasterProtection, String propertyAddress,
+			String burglarBars, String period, String security, String id_number) {
+		
+		this.constructionType = constructionType;
+		this.fireProtectionEquipment = fireProtectionEquipment;
+		this.buildingContentProtection = buildingContentProtection;
+		this.naturalDisasterProtection = naturalDisasterProtection;
+		this.propertyAddress = propertyAddress;
+		this.burglarBars = burglarBars;
+		this.period = period;
+		this.security = security;
+		this.id_number = id_number;
+	}
+	
+	
+	public PropertyBean(int propertyValue, String constructionType,
+			String fireProtectionEquipment, String buildingContentProtection,
+			String naturalDisasterProtection, String propertyAddress,
+			String burglarBars, String period, String security, String id_number) {
+		
+		this.propertyValue = propertyValue;
+		this.constructionType = constructionType;
+		this.fireProtectionEquipment = fireProtectionEquipment;
+		this.buildingContentProtection = buildingContentProtection;
+		this.naturalDisasterProtection = naturalDisasterProtection;
+		this.propertyAddress = propertyAddress;
+		this.burglarBars = burglarBars;
+		this.period = period;
+		this.security = security;
+		this.id_number = id_number;
+	}
+	public String getId_number() {
+		return id_number;
+	}
+	public void setId_number(String id_number) {
+		this.id_number = id_number;
+	}
 	public int getPropertyValue() {
 		return propertyValue;
 	}
@@ -97,18 +142,6 @@ public class PropertyBean {
 
 
 
-	public PropertyBean(int propertyValue, String constructionType, String fireProtectionEquipment, String buildingContentProtection, String naturalDisasterProtection, String burglarBars, String propertyAddress, String period, String security) {
-		
-		this.propertyValue = propertyValue;
-		this.constructionType = constructionType;
-		this.fireProtectionEquipment = fireProtectionEquipment;
-		this.buildingContentProtection = buildingContentProtection;
-		this.naturalDisasterProtection = naturalDisasterProtection;
-		this.burglarBars = burglarBars;
-		this.propertyAddress = propertyAddress;
-		this.period = period;
-		this.security=security;
-	}
 		
 
 

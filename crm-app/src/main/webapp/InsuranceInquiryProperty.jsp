@@ -27,6 +27,12 @@
 
 </head>
 <body>
+
+<%
+		String idNo = (String) session.getAttribute("idNumber");
+	
+	%>
+	
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -126,6 +132,10 @@
 								<label class="radio-inline"> <input type="radio" name="period" value = "12 Months">12 Months	</label>
 							</div>
 						</div>
+							<div class="col-sm-6 form-group">
+								<input type="hidden" name="idNumber"
+									value="<%=idNo%>" class="form-control">
+							</div>
 					</div>
 
 
