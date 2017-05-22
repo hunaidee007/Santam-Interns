@@ -3,6 +3,7 @@ package com.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,10 +26,12 @@ public class AgentLogin extends HttpServlet {
 	    PrintWriter out = response.getWriter();  
 	    String username = request.getParameter("txtUsername");  
 	    String password = request.getParameter("txtPassword");  
+	   
 	    
 	    AgentBean agentBean = new AgentBean(username, password);
 	    boolean status=AgentDaoImpl.validate(agentBean);
 		if(status){
+			request.getSession().setAttribute("username", username);
 			request.getRequestDispatcher("CustomerRegistrationForm.jsp").include(request, response);
 		}
 		else{  

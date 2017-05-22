@@ -8,10 +8,6 @@ public class Customer {
 	private String Email;
 	private String gender;
 	private String surname;
-	
-	
-	
-	
 	public Customer()
 	{
 		
