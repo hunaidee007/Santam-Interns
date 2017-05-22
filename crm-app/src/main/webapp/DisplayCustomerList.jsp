@@ -52,7 +52,7 @@
 		customerList = (List<Customer>) session.getAttribute("customerList");
 	%>
 
-	<table class="table table-bordered">
+	<table class="table table-bordered"> 
 		<tr>
 			<th>Customer ID</th>
 			<th>Customer Name</th>
