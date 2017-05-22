@@ -84,7 +84,7 @@
 				    </div>
 						<div>					
 							<div>
-								<center><button type="button" class="btn btn-lg btn-info">SUBMIT</button></center>
+								<center><button type="button" class="btn btn-lg btn-info">Save</button></center>
 							</div>
 						</div>
 				</form>

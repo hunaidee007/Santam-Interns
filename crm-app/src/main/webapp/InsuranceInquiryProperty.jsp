@@ -152,7 +152,7 @@
 						
 						<div>
 								<!-- input type="submit" class="btn btn-lg btn-info"-->
-								<input type="submit" value="send">								
+								<center><button type="submit" class="btn btn-lg btn-info">Save</button></center>
 						</div>
 						
 					</center>
