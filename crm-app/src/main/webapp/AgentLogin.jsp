@@ -33,6 +33,8 @@
 				style="max-width: 100px; margin-top: -16px; margin-left: -16px; height: 52px;"
 				src="./img/Santam.PNG"></a>
 		</div>
+		
+		
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<!-- <li><a href="CustomerRegistrationForm.jsp">Customer
@@ -53,22 +55,38 @@
 	<div class="container">
 		<div class="col-lg-12 well">
 
-			<div class="row">
-				<form action="AgentLogin" method="post">
-					<center>
-						<div class="col-sm-6 form-group">
-							<label>Username</label> <input type="text" name="txtUsername"
-								placeholder="Enter Username" class="form-control" required>
-
+			<center>
+			<form action="AgentLogin" method="post">
+				
+				<table width ="75%">
+				
+						<tr>
+							<td>
+							<div class="col-sm-6 form-group">
+							<label>Username</label> <input type="text" name="txtUsername" placeholder="Enter Username" class="form-control" required>
 						</div>
-					<div class="col-sm-6 form-group">
-							<label>Password</label> <input type="text" name="txtPassword"
-								placeholder="Enter Password" class="form-control" required>
-					</div>
-						<button type="submit" class="btn btn-lg btn-info">Sign In</button>
-					</center>
-				</form>
-			</div>
+						</td>
+						</tr>
+						
+						<tr>
+							<td>
+							<div class="col-sm-6 form-group">
+							<label>Password</label> <input type="text" name="txtPassword" placeholder="Enter Password" class="form-control" required>
+						</div>
+						</td>
+						</tr>
+
+
+						<tr>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-lg btn-info">Sign In</button></td>
+						</tr>
+
+
+
+				</table>
+											
+			</form>
+			</center>
 		</div>
 	</div>
 	<script

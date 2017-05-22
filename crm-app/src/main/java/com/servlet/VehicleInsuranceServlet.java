@@ -48,21 +48,21 @@ public class VehicleInsuranceServlet extends HttpServlet {
 		String idNumber = request.getParameter("idNumber");
 		
 		VehicleInsuranceDaoImp vehicleInsuranceDaoImp = new VehicleInsuranceDaoImp();
-		vehicleInsuranceDaoImp.createVehicleInquiry(vehicleInquiryBean, coverageBean);
-		System.out.println(" ID number " + idNumber);
+		boolean status = vehicleInsuranceDaoImp.createVehicleInquiry(vehicleInquiryBean, coverageBean);
 		
 		
-		
-		RequestDispatcher rdr = request.getRequestDispatcher("CustomerRegistrationForm.jsp");
-		rdr.forward(request, response);
-		
-		///String message = "<p>"  +  vehicleInsuranceDaoImp.createVehicleInquiry(vehicleInquiryBean)+ "</p>";
-//		HttpSession session = request.getSession();
-//		RequestDispatcher rd = request.getRequestDispatcher("AutoCoverage.jsp");
-		
-		
-		
- 	}
+		response.setContentType("text/html");  
+	    PrintWriter out = response.getWriter();  
+	  
+	    out.print("<script type=\"text/javascript\">");
+	    out.print("location = 'CustomerRegistrationForm.jsp';");
+		out.print("alert('Vehicle information saved!');");
+		out.print("</script>");
+	     
+	    out.close(); 
+	    
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request,response);
 	}
