@@ -4,51 +4,75 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="InsurembrellaStyle.css" rel="stylesheet" type="text/css" />
-<title>Login</title>
+<title>Auto Coverage</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="MyStyle.css">
+<link href='https://fonts.googleapis.com/css?family=Passion+One'
+	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oxygen'
+	rel='stylesheet' type='text/css'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-	<div class="wrapper">
-		<div id="content">
-			<div id="maluluza">
-				<center>
-					<form action="AgentLogin" method="post">
-						<fieldset>
-							<legend>
-								<h3>Login Page</h3>
-							</legend>
-							<table>
-								<tr>
-									<td>
-										<p>Username:</p>
-									</td>
-									<td><input type="text" name="txtUsername"
-										placeholder="Enter username" requered /></td>
-								</tr>
-								<tr>
-									<td>
-										<p>Password:</p>
-									</td>
-									<td><input type="text" name="txtPassword"
-										placeholder="Enter password" requered /></td>
-								</tr>
-								<tr>
-									<td></td>
-								</tr>
-								<tr>
-									<td></td>
-								</tr>
-								<tr>
-									<td colspan="2" align="center"><input type="submit"
-										value="Sign In" name="signIn"></td>
-								</tr>
-							</table>
-							<br /> <br /> <br /> <br /> <br />
-						</fieldset>
-					</form>
-				</center>
+	<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#myNavbar">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#"><img
+				style="max-width: 100px; margin-top: -16px; margin-left: -16px; height: 52px;"
+				src="./img/Santam.PNG"></a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<!-- <li><a href="CustomerRegistrationForm.jsp">Customer
+						Registration</a></li>
+				 <li><a href="AutoCoverage.jsp">Auto Insurance</a></li>
+				<li><a href="InsuranceInquiryProperty.jsp">Property
+						Insurance</a></li>
+						
+				<li><a href="#">Reports</a></li>-->
+			</ul>
+		</div>
+	</div>
+	</nav>
+	<div align="center">
+		<label><h3>Login In</h3></label>
+	</div>
+
+	<div class="container">
+		<div class="col-lg-12 well">
+
+			<div class="row">
+				<form action="AgentLogin" method="post">
+					<center>
+						<div class="col-sm-6 form-group">
+							<label>Username</label> <input type="text" name="txtUsername"
+								placeholder="Enter Username" class="form-control" required>
+
+						</div>
+					<div class="col-sm-6 form-group">
+							<label>Password</label> <input type="text" name="txtPassword"
+								placeholder="Enter Password" class="form-control" required>
+					</div>
+						<button type="submit" class="btn btn-lg btn-info">Sign In</button>
+					</center>
+				</form>
 			</div>
 		</div>
 	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
