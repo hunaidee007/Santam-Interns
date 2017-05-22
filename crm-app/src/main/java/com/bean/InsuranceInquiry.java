@@ -1,44 +1,41 @@
 package com.bean;
 
-import java.util.Date;
 
 public class InsuranceInquiry {
 	private Integer enquiryId;
-	private Date enquiryDate;
-	private Integer  agentId;
-	private Integer customerId;
-	private Integer productId;
+	private String enquiryDate;
+	private String  agentUsername;
+	private String idNumber;
 	
+	public InsuranceInquiry(String enquiryDate,
+			String agentUsername, String idNumber) {
+		this.enquiryDate = enquiryDate;
+		this.agentUsername = agentUsername;
+		this.idNumber = idNumber;
+	}
+	
+	public String getIdNumber() {
+		return idNumber;
+	}
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
+	}
 	public Integer getEnquiryId() {
 		return enquiryId;
 	}
 	public void setEnquiryId(Integer enquiryId) {
 		this.enquiryId = enquiryId;
 	}
-	public Date getEnquiryDate() {
+	public String getEnquiryDate() {
 		return enquiryDate;
 	}
-	public void setEnquiryDate(Date enquiryDate) {
+	public void setEnquiryDate(String enquiryDate) {
 		this.enquiryDate = enquiryDate;
 	}
-	public Integer getAgentId() {
-		return agentId;
+	public String getAgentUsername() {
+		return agentUsername;
 	}
-	public void setAgentId(Integer agentId) {
-		this.agentId = agentId;
+	public void setAgentUsername(String agentUsername) {
+		this.agentUsername = agentUsername;
 	}
-	public Integer getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
-	}
-	public Integer getProductId() {
-		return productId;
-	}
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
-
-
 }

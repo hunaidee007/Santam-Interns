@@ -1,6 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.util.Date;
+import java.text.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,9 +16,9 @@ import com.bean.Address;
 import com.bean.Customer;
 import com.bean.InsuranceInquiry;
 import com.config.ApplicationContext;
-import com.dao.CustomerDao;
+import com.dao.EnsuranceEnquiryDao;
 import com.impl.CustomerDaoImp;
-import com.model.AddressConcat;
+import com.impl.EnsuranceEnquiryDaoImp;
 
 @WebServlet("/CustomerController")
 public class CustomerController extends HttpServlet {
@@ -35,26 +37,20 @@ public class CustomerController extends HttpServlet {
 		String phoneNo = request.getParameter("txtPhoneNo");
 		String email = request.getParameter("txtEmail");
 		String insuranceType = request.getParameter("insuranceType");
+		String agentUserN = request.getParameter("agentUserN");
 
 		Customer cust = new Customer(custName, phoneNo, email, gender, surname, idNumber);
 		Address add = new Address(street, city, state, postalCode, idNumber);
 
 		CustomerDaoImp imp = new CustomerDaoImp();
 		imp.createCustomer(cust, add);
-
 		
-
-		//String myAddress = concat.AddressConCat(address, city, state, postalCode);
-		//Customer custBean = new Customer(custName, myAddress, phoneNo, email, gender, surname, idNumber);
-		//CustomerDao myDao = ApplicationContext.getInstance(CustomerDaoImpl.class); 
-		//myDao.createCustomer(custBean);
-		//Get Stored the Customer 
-		//Customer customerBean = myDao.getCustomer(custBean);
-		InsuranceInquiry inquiry = new InsuranceInquiry();
-		//   CustomerDaoImpl cd = new CustomerDaoImpl();
-		//    cd.storeEnquiryData(customerBean, inquiry);
-		//   System.out.println("Print  "+ inquiry.getAgentId());
-
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		String data = df.format(new Date());
+		InsuranceInquiry inquiry = new InsuranceInquiry(data, agentUserN, idNumber);
+		EnsuranceEnquiryDao enquiryDao = new EnsuranceEnquiryDaoImp();
+		enquiryDao.createEnsuranceEnquiry(inquiry);
+		
 		if(insuranceType.equals("auto")){
 			request.getSession().setAttribute("idNumber", idNumber);
 			//request.getSession().setAttribute("enquiryId", inquiry.getEnquiryId());
@@ -63,7 +59,6 @@ public class CustomerController extends HttpServlet {
 		}
 		if(insuranceType.equals("property")){
 			request.getSession().setAttribute("idNumber", idNumber);
-			//request.getSession().setAttribute("enquiryId", inquiry.getEnquiryId());
 			RequestDispatcher rdr = request.getRequestDispatcher("InsuranceInquiryProperty.jsp");
 			rdr.forward(request, response);
 		}

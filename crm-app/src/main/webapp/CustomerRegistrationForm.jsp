@@ -15,6 +15,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+<%
+		String agentUsername = (String) session.getAttribute("username");
+	%>
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -117,6 +120,10 @@
 								placeholder="Enter Email Address Here.." class="form-control"
 								name="txtEmail" />
 						</div>
+						<div class="col-sm-6 form-group">
+								<input type="hidden" name="agentUserN"
+									value="<%=agentUsername%>" class="form-control">
+							</div>
 						<center>
 						<div class="row">
 							<div class="col-sm-4 form-group">
