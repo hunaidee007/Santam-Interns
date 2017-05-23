@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.bean.Address;
-import com.bean.Customer;
+import com.bean.AddressBean;
+import com.bean.CustomerBean;
 import com.config.ConnectionProvider;
 import com.config.Service;
 import com.dao.CustomerDao;
@@ -25,7 +25,7 @@ public class CustomerDaoImp implements CustomerDao{
 
 	}
 
-	public void createCustomer(Customer customer, Address address) 
+	public void createCustomer(CustomerBean customer, AddressBean address) 
 	{
 		try {
 			String queryString = "INSERT INTO customer(cust_name,surname,Contact_No,Email,id_number,gender) VALUES(?,?,?,?,?,?)";

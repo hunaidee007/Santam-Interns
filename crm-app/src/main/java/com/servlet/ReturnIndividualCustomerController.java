@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bean.Customer;
+import com.bean.CustomerBean;
 import com.bean.SearchCustomerBean;
-import com.impl.SearchImpl;
+import com.impl.SearchDaoImp;
 
 @WebServlet("/ReturnIndividualCustomerController")
 public class ReturnIndividualCustomerController extends HttpServlet {
@@ -25,10 +25,10 @@ public class ReturnIndividualCustomerController extends HttpServlet {
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		Customer customer = new Customer();
+		CustomerBean customer = new CustomerBean();
 			int custID= Integer.parseInt(request.getParameter("CustId"));
 		SearchCustomerBean searchCustomerBean = new SearchCustomerBean(custID);
-		SearchImpl searchImpl = new SearchImpl();
+		SearchDaoImp searchImpl = new SearchDaoImp();
 		customer = searchImpl.getIndividiualCustomer(searchCustomerBean);
 		
 		

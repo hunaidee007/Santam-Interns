@@ -23,7 +23,7 @@ public class PropertyInsuranceDaoImp implements PropertyCoverageDao {
 		return connection;
 	}
 
-	public boolean createProperty(PropertyBean propertyBean,PropertyCoveragesBean coverages) 
+	public void createProperty(PropertyBean propertyBean,PropertyCoveragesBean coverages) 
 	{
 		try
 		{
@@ -46,7 +46,6 @@ public class PropertyInsuranceDaoImp implements PropertyCoverageDao {
 			
 			ptmt.executeUpdate();
 		    System.out.println ("Property has been added successfully");
-		    return true;
 		}
 		catch(SQLException e)
 		{
@@ -70,14 +69,11 @@ public class PropertyInsuranceDaoImp implements PropertyCoverageDao {
 			
 			ptmt.executeUpdate();
 		    System.out.println ("Property_Coverage has been added successfully");
-		    return true;
 		}
 		catch (SQLException e) 
 		{
 			e.printStackTrace();
 			
 		}
-		return false;
-		
 	}
 }

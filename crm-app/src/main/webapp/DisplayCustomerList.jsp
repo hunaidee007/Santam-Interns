@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="com.bean.Customer"
+	pageEncoding="ISO-8859-1" import="com.bean.CustomerBean"
 	import="java.util.List"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -44,12 +44,12 @@
 		<div class="col-lg-12 well">
 			<div class="row">
 			
-	<%!Customer cutomer;%>
+	<%!CustomerBean cutomer;%>
 
-	<%!List<Customer> customerList;%>
+	<%!List<CustomerBean> customerList;%>
 
 	<%
-		customerList = (List<Customer>) session.getAttribute("customerList");
+		customerList = (List<CustomerBean>) session.getAttribute("customerList");
 	%>
 
 	<table border="1">
@@ -64,7 +64,7 @@
 			<th>Customer Gender</th>
 		</tr>
 		<%
-			for (Customer customer : customerList) {
+			for (CustomerBean customer : customerList) {
 		%>
 		<tr>
 			<td><%=customer.getCustId()%></td>

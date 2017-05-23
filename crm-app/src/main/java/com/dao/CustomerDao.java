@@ -1,11 +1,11 @@
 package com.dao;
 
-import com.bean.Address;
-import com.bean.Customer;
+import com.bean.AddressBean;
+import com.bean.CustomerBean;
 
 
 public interface CustomerDao {
 	
-	public void createCustomer(Customer customer,Address address);
+	public void createCustomer(CustomerBean customer,AddressBean address);
 
 }

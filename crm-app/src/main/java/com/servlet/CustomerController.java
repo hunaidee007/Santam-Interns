@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bean.Address;
-import com.bean.Customer;
-import com.bean.InsuranceInquiry;
+import com.bean.AddressBean;
+import com.bean.CustomerBean;
+import com.bean.InsuranceInquiryBean;
 import com.config.ApplicationContext;
 import com.dao.EnsuranceEnquiryDao;
 import com.impl.CustomerDaoImp;
@@ -39,21 +39,20 @@ public class CustomerController extends HttpServlet {
 		String insuranceType = request.getParameter("insuranceType");
 		String agentUserN = request.getParameter("agentUserN");
 
-		Customer cust = new Customer(custName, phoneNo, email, gender, surname, idNumber);
-		Address add = new Address(street, city, state, postalCode, idNumber);
+		CustomerBean cust = new CustomerBean(custName, phoneNo, email, gender, surname, idNumber);
+		AddressBean add = new AddressBean(street, city, state, postalCode, idNumber);
 
 		CustomerDaoImp imp = new CustomerDaoImp();
 		imp.createCustomer(cust, add);
 		
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		String data = df.format(new Date());
-		InsuranceInquiry inquiry = new InsuranceInquiry(data, agentUserN, idNumber);
+		InsuranceInquiryBean inquiry = new InsuranceInquiryBean(data, agentUserN, idNumber);
 		EnsuranceEnquiryDao enquiryDao = new EnsuranceEnquiryDaoImp();
 		enquiryDao.createEnsuranceEnquiry(inquiry);
 		
 		if(insuranceType.equals("auto")){
 			request.getSession().setAttribute("idNumber", idNumber);
-			//request.getSession().setAttribute("enquiryId", inquiry.getEnquiryId());
 			RequestDispatcher rd = request.getRequestDispatcher("AutoCoverage.jsp");
 			rd.forward(request, response);
 		}
@@ -62,8 +61,6 @@ public class CustomerController extends HttpServlet {
 			RequestDispatcher rdr = request.getRequestDispatcher("InsuranceInquiryProperty.jsp");
 			rdr.forward(request, response);
 		}
-		
-		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

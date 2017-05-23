@@ -1,7 +1,7 @@
 package com.dao;
 
-import com.bean.InsuranceInquiry;
+import com.bean.InsuranceInquiryBean;
 
 public interface EnsuranceEnquiryDao {
-	public void createEnsuranceEnquiry(InsuranceInquiry inquiry);
+	public void createEnsuranceEnquiry(InsuranceInquiryBean inquiry);
 }
