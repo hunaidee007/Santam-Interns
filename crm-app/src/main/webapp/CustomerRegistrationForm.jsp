@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="com.bean.Customer"%>
+	pageEncoding="ISO-8859-1" import="com.bean.CustomerBean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,8 +16,8 @@
 </head>
 <body>
 <%
-		String agentUsername = (String) session.getAttribute("username");
-	%>
+	String agentUsername = (String) session.getAttribute("username");
+%>
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -39,6 +39,9 @@
 						Insurance</a></li>
 						 -->
 				<li><a href="#">Reports</a></li>
+				<li><a href="AgentLogin.jsp">
+						Sign Out</a></li>
+						 
 			</ul>
 		</div>
 	</div>
@@ -59,7 +62,7 @@
 				</form> -->
 				<!-- Search Form END##############################################################################################-->
 				<%
-					Customer customer = (Customer) session.getAttribute("customer");
+					CustomerBean customer = (CustomerBean) session.getAttribute("customer");
 				%>
 				<form action="CustomerController" method="post">
 					<div class="col-sm-12">

@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.bean.Customer;
+import com.bean.CustomerBean;
 import com.bean.SearchCustomerBean;
 import com.config.ConnectionProvider;
 import com.dao.SearchDao;
 
-public class SearchImpl implements SearchDao{
+public class SearchDaoImp implements SearchDao{
 
 	Connection connection = null;
 	static PreparedStatement ptmt = null;
@@ -27,12 +27,10 @@ public class SearchImpl implements SearchDao{
 		conn = ConnectionProvider.getConnection();
 		return conn;
 	}
+	public List<CustomerBean> getAllCustomers() {
+		CustomerBean cust = new CustomerBean();
 
-
-	public List<Customer> getAllCustomers() {
-		Customer cust = new Customer();
-
-		List<Customer> mylist = new ArrayList<Customer>();
+		List<CustomerBean> mylist = new ArrayList<CustomerBean>();
 		try 
 		{
 			String sql = "SELECT * FROM customer";
@@ -64,11 +62,9 @@ public class SearchImpl implements SearchDao{
 
 		return mylist;
 	}
+	public List<CustomerBean> getCustomerList(SearchCustomerBean searchCustomerBean) {
 
-
-	public List<Customer> getCustomerList(SearchCustomerBean searchCustomerBean) {
-
-		List<Customer> mylist = new ArrayList<Customer>();
+		List<CustomerBean> mylist = new ArrayList<CustomerBean>();
 		String whereString = "";
 		if (searchCustomerBean.getSearchCustomerName() != ""){  
 			whereString = "cust_name  like '%" + searchCustomerBean.getSearchCustomerName() + "%'";
@@ -90,17 +86,15 @@ public class SearchImpl implements SearchDao{
 		if (whereString != ""){
 			whereString = "SELECT * FROM customer WHERE " + whereString;
 		}
-
 		try 
 		{
 			String sql = whereString;
-			//			System.out.println(whereString);
 			connection = getConnection();
 			ptmt = connection.prepareStatement(sql);
 			resultSet = ptmt.executeQuery();
 			while(resultSet.next())
 			{	
-				Customer cust = new Customer();				
+				CustomerBean cust = new CustomerBean();				
 				cust.setCustId(resultSet.getInt("custId"));
 				cust.setCustName(resultSet.getString("cust_name"));
 				//cust.setAddress(resultSet.getString("Address"));
@@ -112,9 +106,6 @@ public class SearchImpl implements SearchDao{
 				mylist.add(cust);
 
 			}
-
-
-
 		}
 		catch (SQLException e) 
 		{
@@ -122,29 +113,24 @@ public class SearchImpl implements SearchDao{
 			e.printStackTrace();
 		}
 
-
-
 		/*	for (Customer customer : mylist) {
 			System.out.println("GERNA before list is returned: " + customer.getCustId()  + customer.getCustName() );
 		}*/
 
 		return mylist;
-
 	}
-
-	public Customer getIndividiualCustomer(SearchCustomerBean searchCustomerBean) {
+	public CustomerBean getIndividiualCustomer(SearchCustomerBean searchCustomerBean) {
 		String whereString = "SELECT * FROM customer WHERE custId=" + searchCustomerBean.getSearchCustomerKey();
 		String sql = whereString;		
 
-		Customer cust = null;
+		CustomerBean cust = null;
 		try {
 			connection = getConnection();
 			ptmt = connection.prepareStatement(sql);
 			resultSet = ptmt.executeQuery();
-			cust = new Customer();	
+			cust = new CustomerBean();	
 			while(resultSet.next())
 			{	
-
 				cust.setCustId(resultSet.getInt("custId"));
 				cust.setCustName(resultSet.getString("cust_name"));
 				//cust.setAddress(resultSet.getString("Address"));
@@ -153,14 +139,10 @@ public class SearchImpl implements SearchDao{
 				cust.setSurname(resultSet.getString("surname"));
 				cust.setGender(resultSet.getString("gender"));
 				cust.setIdNumber(resultSet.getString("id_number"));
-
-
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//		System.out.println("Gerna sql query: " + whereString);
 		return cust;
 	}
 }

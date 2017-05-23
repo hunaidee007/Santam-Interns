@@ -23,7 +23,7 @@ public class VehicleInsuranceDaoImp implements VehicleInsuranceDao {
 		return connection;
 	}
 	
-	public boolean createVehicleInquiry(VehicleInquiryBean vehicleInquiry,VehicleCoverageBean coverage) {
+	public void createVehicleInquiry(VehicleInquiryBean vehicleInquiry,VehicleCoverageBean coverage) {
 		try {
 			String queryString = "INSERT INTO autopolicy(VehicleModel,VehicleReg,VehicleMake,"
 					+ "ManufactureDate,Price,vehicleType,periodRequired,id_number)"
@@ -66,7 +66,7 @@ public class VehicleInsuranceDaoImp implements VehicleInsuranceDao {
 	
 			ptmt.executeUpdate();
 		    System.out.println ("Auto_Coverage has been added successfully");
-			return true;
+			
 			
 		}
 		catch (SQLException e) 
@@ -75,14 +75,5 @@ public class VehicleInsuranceDaoImp implements VehicleInsuranceDao {
 
 			
 		}
-		return false;
-
-	
 	}
-
-
-
-	
-	
-	
 }

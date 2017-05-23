@@ -1,13 +1,13 @@
 package com.bean;
 
 
-public class InsuranceInquiry {
+public class InsuranceInquiryBean {
 	private Integer enquiryId;
 	private String enquiryDate;
 	private String  agentUsername;
 	private String idNumber;
 	
-	public InsuranceInquiry(String enquiryDate,
+	public InsuranceInquiryBean(String enquiryDate,
 			String agentUsername, String idNumber) {
 		this.enquiryDate = enquiryDate;
 		this.agentUsername = agentUsername;

@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.bean.InsuranceInquiry;
+import com.bean.InsuranceInquiryBean;
 import com.config.ConnectionProvider;
 import com.dao.EnsuranceEnquiryDao;
 
@@ -21,7 +21,7 @@ public class EnsuranceEnquiryDaoImp implements EnsuranceEnquiryDao{
 		return connection;
 
 	}
-	public void createEnsuranceEnquiry(InsuranceInquiry inquiry) {
+	public void createEnsuranceEnquiry(InsuranceInquiryBean inquiry) {
 		try {
 			String queryString = "INSERT INTO insuranceenquiry(EnquiryDate,id_number,agentcode) VALUES(?,?,?)";
 			connection = getConnection();

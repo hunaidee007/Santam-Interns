@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bean.Customer;
+import com.bean.CustomerBean;
 import com.bean.SearchCustomerBean;
-import com.impl.SearchImpl;
+import com.impl.SearchDaoImp;
 
 @WebServlet("/SearchCustomerController")
 public class SearchCustomerController extends HttpServlet {
@@ -41,10 +41,10 @@ public class SearchCustomerController extends HttpServlet {
 		}else{
 
 			SearchCustomerBean searchCustomerBean = new SearchCustomerBean(customerName, customerCity, customerID);
-			SearchImpl searchImpl = new SearchImpl();
-			List<Customer> customerList = searchImpl.getCustomerList(searchCustomerBean);
+			SearchDaoImp searchImpl = new SearchDaoImp();
+			List<CustomerBean> customerList = searchImpl.getCustomerList(searchCustomerBean);
 			Iterator iter = customerList.iterator();
-			Customer customer = new Customer();
+			CustomerBean customer = new CustomerBean();
 			/*while (iter.hasNext()){
 				customer = (Customer) iter.next();
 				System.out.println("Gerna in servlet" + customer.getCustId() + " " + customer.getCustName());
@@ -52,6 +52,7 @@ public class SearchCustomerController extends HttpServlet {
 
 			HttpSession session = request.getSession();
 			session.setAttribute("customerList", customerList);
+			
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/DisplayCustomerList.jsp");
 			dispatcher.forward(request, response);

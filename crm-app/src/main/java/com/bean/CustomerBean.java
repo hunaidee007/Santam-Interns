@@ -1,6 +1,6 @@
 package com.bean;
 
-public class Customer {
+public class CustomerBean {
 	
 	private int custId;
 	private String custName;
@@ -8,12 +8,12 @@ public class Customer {
 	private String Email;
 	private String gender;
 	private String surname;
-	public Customer()
+	public CustomerBean()
 	{
 		
 	}
 	
-	public Customer( String custName, String contactNo,
+	public CustomerBean( String custName, String contactNo,
 			String email, String gender, String surname, String idNumber) {
 		this.custName = custName;
 		ContactNo = contactNo;
@@ -24,7 +24,7 @@ public class Customer {
 	}
 	
 	
-	public Customer(int custId, String custName, String contactNo,
+	public CustomerBean(int custId, String custName, String contactNo,
 			String email, String gender, String surname, String idNumber) {
 		this.custId = custId;
 		this.custName = custName;
