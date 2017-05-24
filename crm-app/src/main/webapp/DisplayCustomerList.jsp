@@ -67,7 +67,6 @@
 						<th>Customer ID</th>
 						<th>Customer Name</th>
 						<th>Customer Surname</th>
-						<th>Customer Address</th>
 						<th>Customer Phone Number</th>
 						<th>Customer Email</th>
 						<th>Customer ID Number</th>
@@ -82,9 +81,6 @@
 							<a
 							href="ReturnIndividualCustomerController?CustId=<%=tempCustId %>"><%=customer.getCustName()%></a></td>
 						<td><%=customer.getSurname()%></td>
-						<td>
-							<%//=customer.getAddress()%>
-						</td>
 						<td><%=customer.getContactNo()%></td>
 						<td><%=customer.getEmail()%></td>
 						<td><%=customer.getIdNumber()%></td>
