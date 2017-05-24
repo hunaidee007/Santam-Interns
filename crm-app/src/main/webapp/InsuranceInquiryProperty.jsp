@@ -28,11 +28,10 @@
 </head>
 <body>
 
-<%
+	<%
 		String idNo = (String) session.getAttribute("idNumber");
-	
 	%>
-	
+
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -47,17 +46,28 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li><a href="CustomerRegistrationForm.jsp">Customer	Registration</a></li>
-			<!--  	<li><a href="AutoCoverage.jsp">Auto Insurance</a></li>
+				<li><a href="CustomerRegistrationForm.jsp">Customer
+						Registration</a></li>
+				<!--  	<li><a href="AutoCoverage.jsp">Auto Insurance</a></li>
 				<li><a href="InsuranceInquiryProperty.jsp">Property Insurance</a></li>
-			-->	
-				<li><a href="#">Reports</a></li>
+			-->
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="TopFiveCustomerReportServlet">Reports
+						<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="TopFiveCustomerReportServlet">Top Five
+								Customers</a></li>
+						<!--  <li><a href="ActiveProductsReportServlet">Active Products</a></li>-->
+						<li><a href="EnterCity.jsp">Customer By City</a></li>
+						<!--<li><a href="EnterProduct.jsp">Customer By Product</a></li>-->
+					</ul></li>
 			</ul>
 		</div>
 	</div>
 	</nav>
 
-	<div class="container" >
+	<div class="container">
 		<div class="col-lg-12 well">
 			<div class="row">
 				<div align="center">
@@ -67,94 +77,125 @@
 				<form method="post" action="PropertyInquiry">
 					<div class="col-sm-12">
 						<div class="row">
-							
-							<div class="col-sm-6 form-group">
-								<label>Property Value </label> <input type="text" name="propertyValue" placeholder="Enter Property value" class="form-control" required>
-							</div>
-
-						</div>
-						<div class="row">
 
 							<div class="col-sm-6 form-group">
-								<label>Construction Type</label> <input type="text" name= "constructionType" placeholder="Enter Construction Type" class="form-control" required>
+								<label>Property Value </label> <input type="text"
+									name="propertyValue" placeholder="Enter Property value"
+									class="form-control" required>
+							</div>
+
+						</div>
+						<div class="row">
+
+							<div class="col-sm-6 form-group">
+								<label>Construction Type</label> <input type="text"
+									name="constructionType" placeholder="Enter Construction Type"
+									class="form-control" required>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col-sm-4 form-group">
-								<label>Fire Protection Equipment </label> <br>
-								<label class="radio-inline"> <input type="radio" name="fireProtectionEquipment" value = "Yes">Yes</label> 
-								<label class="radio-inline"> <input type="radio" name="fireProtectionEquipment" value = "No">No	</label>
+								<label>Fire Protection Equipment </label> <br> <label
+									class="radio-inline"> <input type="radio"
+									name="fireProtectionEquipment" value="Yes">Yes
+								</label> <label class="radio-inline"> <input type="radio"
+									name="fireProtectionEquipment" value="No">No
+								</label>
 							</div>
 						</div>
 
 
 						<div class="row">
 							<div class="col-sm-4 form-group">
-								<label>Building Content Protection</label> <br> 
-								<label class="radio-inline"> <input type="radio" name="buildingRd" value = "Yes">Yes</label>
-								<label class="radio-inline"> <input type="radio"name="buildingRd" value = "No">No</label>
+								<label>Building Content Protection</label> <br> <label
+									class="radio-inline"> <input type="radio"
+									name="buildingRd" value="Yes">Yes
+								</label> <label class="radio-inline"> <input type="radio"
+									name="buildingRd" value="No">No
+								</label>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col-sm-4 form-group">
-								<label>Natural Disaster Protection</label> <br> 
-								<label class="radio-inline"> <input type="radio" name="disasterRd" value = "Yes">Yes</label>
-								 <label class="radio-inline"> <input type="radio" name="disasterRd" value = "No">No</label>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="col-sm-4 form-group">
-								<label>Security Alarm System</label> <br> 
-								<label class="radio-inline"> <input type="radio" name="security" value = "Yes">Yes</label>
-								 <label class="radio-inline"> <input type="radio" name="security" value = "No">No</label>
+								<label>Natural Disaster Protection</label> <br> <label
+									class="radio-inline"> <input type="radio"
+									name="disasterRd" value="Yes">Yes
+								</label> <label class="radio-inline"> <input type="radio"
+									name="disasterRd" value="No">No
+								</label>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col-sm-4 form-group">
-								<label>Burglar Bars </label> <br> 
-								<label class="radio-inline"> <input type="radio" name="burglarRd" value = "Yes">Yes</label>
-								<label class="radio-inline"> <input type="radio" name="burglarRd" value = "No">No</label>
+								<label>Security Alarm System</label> <br> <label
+									class="radio-inline"> <input type="radio"
+									name="security" value="Yes">Yes
+								</label> <label class="radio-inline"> <input type="radio"
+									name="security" value="No">No
+								</label>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-4 form-group">
+								<label>Burglar Bars </label> <br> <label
+									class="radio-inline"> <input type="radio"
+									name="burglarRd" value="Yes">Yes
+								</label> <label class="radio-inline"> <input type="radio"
+									name="burglarRd" value="No">No
+								</label>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label>Property Address</label></br>
-								<textarea name="propertyAddress" rows="5" cols="20"	placeholder="Enter Property Address"></textarea>
+								<textarea name="propertyAddress" rows="5" cols="20"
+									placeholder="Enter Property Address"></textarea>
 							</div>
 							<div class="col-sm-4 form-group">
-								<label>Period </label> <br> 
-								<label class="radio-inline"><input type="radio" name="period" value = "6 Months">6 Months</label> 
-								<label class="radio-inline"> <input type="radio" name="period" value = "12 Months">12 Months	</label>
+								<label>Period </label> <br> <label class="radio-inline"><input
+									type="radio" name="period" value="6 Months">6 Months</label> <label
+									class="radio-inline"> <input type="radio" name="period"
+									value="12 Months">12 Months
+								</label>
 							</div>
 						</div>
-							<div class="col-sm-6 form-group">
-								<input type="hidden" name="idNumber"
-									value="<%=idNo%>" class="form-control">
-							</div>
+						<div class="col-sm-6 form-group">
+							<input type="hidden" name="idNumber" value="<%=idNo%>"
+								class="form-control">
+						</div>
 					</div>
 
 
 					<center>
 						<h2>Coverage</h2>
 						<div>
-							<label class="checkbox-inline"> <input type="checkbox" name = "dwell" value="Dwelling">Dwelling (Home Structure)</label>
-							<label class="checkbox-inline"> <input type="checkbox" name = "personal" value="Personal">Personal Property</label>
-							<label class="checkbox-inline"> <input type="checkbox" name = "liability" value="Liability">Liability Protection</label>
-							<label class="checkbox-inline"> <input type="checkbox" name = "medical" value="medical">Guest Medical Protection</label>
-							<label class="checkbox-inline"> <input type="checkbox"	name = "additional" value="Additional cover">Additional Protection</label>
+							<label class="checkbox-inline"> <input type="checkbox"
+								name="dwell" value="Dwelling">Dwelling (Home Structure)
+							</label> <label class="checkbox-inline"> <input type="checkbox"
+								name="personal" value="Personal">Personal Property
+							</label> <label class="checkbox-inline"> <input type="checkbox"
+								name="liability" value="Liability">Liability Protection
+							</label> <label class="checkbox-inline"> <input type="checkbox"
+								name="medical" value="medical">Guest Medical Protection
+							</label> <label class="checkbox-inline"> <input type="checkbox"
+								name="additional" value="Additional cover">Additional
+								Protection
+							</label>
 
 						</div>
-						
+
 						<div>
-								<!-- input type="submit" class="btn btn-lg btn-info"-->
-								<center><button type="submit" class="btn btn-lg btn-info">Save</button></center>
+							<!-- input type="submit" class="btn btn-lg btn-info"-->
+							<center>
+								<button type="submit" class="btn btn-lg btn-info">Save</button>
+							</center>
 						</div>
-						
+
 					</center>
 				</form>
 			</div>

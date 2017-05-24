@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
+<%@page language="java" import="java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Agent Login</title>
+<title>Active Products</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="MyStyle.css">
 <link href='https://fonts.googleapis.com/css?family=Passion+One'
@@ -18,9 +23,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 </head>
 <body>
+
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -33,56 +38,52 @@
 				style="max-width: 100px; margin-top: -16px; margin-left: -16px; height: 52px;"
 				src="./img/Santam.PNG"></a>
 		</div>
-
-
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
+
+
 			</ul>
 		</div>
 	</div>
 	</nav>
-	<div align="center">
-		<label><h3>Login In</h3></label>
-	</div>
+
+	<div align="center"></div>
 
 	<div class="container">
 		<div class="col-lg-12 well">
+			<div class="row">
+				<div align="center">
+					<div class="main-login main-center">
 
+						<form class="" method="get"
+							action="CustomerByProductReportServlet">
 
-			<form action="AgentLogin" method="post">
-				<center>
-					<table width="75%">
+							<div class="form-group">
 
-						<tr>
-							<td>
 								<div class="col-sm-6 form-group">
-									<label>Username</label> <input type="text" name="txtUsername"
-										placeholder="Enter Username" class="form-control" required>
+									<div class="input-group">
+										<span class="input-group-addon"><i
+											class="fa fa-user fa" aria-hidden="true"></i></span> <input
+											type="text" class="form-control" name="choosenproduct"
+											placeholder="Enter product name here" />
+									</div>
 								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="col-sm-6 form-group">
-									<label>Password</label> <input type="password"
-										name="txtPassword" placeholder="Enter Password"
-										class="form-control" required>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;
-								<button type="submit" class="btn btn-lg btn-info">Sign
-									In</button>
-							</td>
-						</tr>
-					</table>
-				</center>
-			</form>
+							</div>
+
+							<div class="form-group ">
+
+								<input type="submit" class="btn btn-lg btn-info" />
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+
+
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

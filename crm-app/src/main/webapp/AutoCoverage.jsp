@@ -45,7 +45,16 @@
 				<li><a href="InsuranceInquiryProperty.jsp">Property
 						Insurance</a></li>
 						-->
-				<li><a href="#">Reports</a></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="TopFiveCustomerReportServlet">Reports
+						<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+					<li><a href="TopFiveCustomerReportServlet">Top Five Customers</a></li>
+						<!--<li><a href="ActiveProductsReportServlet">Active Products</a></li>-->
+						<li><a href="EnterCity.jsp">Customer By City</a></li>
+						<!--<li><a href="EnterProduct.jsp">Customer By Product</a></li>-->
+					</ul></li>
 			</ul>
 		</div>
 	</div>

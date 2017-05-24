@@ -35,7 +35,17 @@
 				<li><a href="InsuranceInquiryAuto.jsp">Auto Insurance</a></li>
 				<li><a href="InsuranceInquiryProperty.jsp">Property
 						Insurance</a></li>
-				<li><a href="#">Reports</a></li>
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="TopFiveCustomerReportServlet">Reports
+						<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="TopFiveCustomerReportServlet">Top Five
+								Customers</a></li>
+						<!--  <li><a href="ActiveProductsReportServlet">Active Products</a></li>-->
+						<li><a href="EnterCity.jsp">Customer By City</a></li>
+						<!--<li><a href="EnterProduct.jsp">Customer By Product</a></li>-->
+					</ul></li>
 			</ul>
 		</div>
 	</div>
@@ -43,48 +53,45 @@
 	<div class="container">
 		<div class="col-lg-12 well">
 			<div class="row">
-			
-	<%!CustomerBean cutomer;%>
 
-	<%!List<CustomerBean> customerList;%>
+				<%!CustomerBean cutomer;%>
 
-	<%
+				<%!List<CustomerBean> customerList;%>
+
+				<%
 		customerList = (List<CustomerBean>) session.getAttribute("customerList");
 	%>
 
-	<table border="1">
-		<tr>
-			<th>Customer ID</th>
-			<th>Customer Name</th>
-			<th>Customer Surname</th>
-			<th>Customer Address</th>
-			<th>Customer Phone Number</th>
-			<th>Customer Email</th>
-			<th>Customer ID Number</th>
-			<th>Customer Gender</th>
-		</tr>
-		<%
+				<table border="1">
+					<tr>
+						<th>Customer ID</th>
+						<th>Customer Name</th>
+						<th>Customer Surname</th>
+						<th>Customer Phone Number</th>
+						<th>Customer Email</th>
+						<th>Customer ID Number</th>
+						<th>Customer Gender</th>
+					</tr>
+					<%
 			for (CustomerBean customer : customerList) {
 		%>
-		<tr>
-			<td><%=customer.getCustId()%></td>
-			<td>
-			<%!int tempCustId=0;%>
-			<% tempCustId=customer.getCustId();%>
-			<a href="ReturnIndividualCustomerController?CustId=<%=tempCustId %>"><%=customer.getCustName()%></a></td>
-			<td><%=customer.getSurname()%></td>
-			<td><%//=customer.getAddress()%></td>
-			<td><%=customer.getContactNo()%></td>
-			<td><%=customer.getEmail()%></td>
-			<td><%=customer.getIdNumber()%></td>
-			<td><%=customer.getGender()%></td>
-		</tr>
-		<%
+					<tr>
+						<td><%=customer.getCustId()%></td>
+						<td><%!int tempCustId=0;%> <% tempCustId=customer.getCustId();%>
+							<a
+							href="ReturnIndividualCustomerController?CustId=<%=tempCustId %>"><%=customer.getCustName()%></a></td>
+						<td><%=customer.getSurname()%></td>
+						<td><%=customer.getContactNo()%></td>
+						<td><%=customer.getEmail()%></td>
+						<td><%=customer.getIdNumber()%></td>
+						<td><%=customer.getGender()%></td>
+					</tr>
+					<%
 			}
 		%>
-	</table>
+				</table>
 
-</div>
+			</div>
 		</div>
 	</div>
 	<script

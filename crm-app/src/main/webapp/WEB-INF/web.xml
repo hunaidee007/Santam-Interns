@@ -4,6 +4,46 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>ActiveProductsReportServlet</servlet-name>
+  	<display-name>ActiveProductsReportServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.ActiveProductsReportServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CustomerByCityReportServlet</servlet-name>
+  	<display-name>CustomerByCityReportServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.CustomerByCityReportServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CustomerByProductReportServlet</servlet-name>
+  	<display-name>CustomerByProductReportServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.CustomerByProductReportServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>TopFiveCustomerReportServlet</servlet-name>
+  	<display-name>TopFiveCustomerReportServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.servlet.TopFiveCustomerReportServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ActiveProductsReportServlet</servlet-name>
+  	<url-pattern>/ActiveProductsReportServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CustomerByCityReportServlet</servlet-name>
+  	<url-pattern>/CustomerByCityReportServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CustomerByProductReportServlet</servlet-name>
+  	<url-pattern>/CustomerByProductReportServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TopFiveCustomerReportServlet</servlet-name>
+  	<url-pattern>/TopFiveCustomerReportServlet</url-pattern>
+  </servlet-mapping>
   <welcome-file-list><welcome-file>AgentLogin.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
