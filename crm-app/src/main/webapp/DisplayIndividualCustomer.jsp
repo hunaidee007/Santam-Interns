@@ -33,10 +33,20 @@
 			<ul class="nav navbar-nav">
 				<li><a href="CustomerRegistrationForm.jsp">Customer
 						Registration</a></li>
-				<li><a href="InsuranceInquiryAuto.jsp">Auto Insurance</a></li>
+				<!-- <li><a href="InsuranceInquiryAuto.jsp">Auto Insurance</a></li>
 				<li><a href="InsuranceInquiryProperty.jsp">Property
 						Insurance</a></li>
-				<li><a href="#">Reports</a></li>
+						-->
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="TopFiveCustomerReportServlet">Reports
+						<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu">
+					<li><a href="TopFiveCustomerReportServlet">Top Five Customers</a></li>
+						<!--  <li><a href="ActiveProductsReportServlet">Active Products</a></li>-->
+						<li><a href="EnterCity.jsp">Customer By City</a></li>
+						<li><a href="EnterProduct.jsp">Customer By Product</a></li>
+					</ul></li>
 			</ul>
 		</div>
 	</div>
@@ -61,11 +71,11 @@
 									name="txtLName" />
 							</div>
 						</div>
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label>Address</label>
 							<textarea rows="3" class="form-control" name="txtAreaAddress"><%//=customer.getAddress() %></textarea>
 						</div>
-						<div class="row">
+						 <div class="row">
 							<div class="col-sm-4 form-group">
 								<label>City</label> <input type="text" Value="TODO"
 									class="form-control" name="txtCity" />
@@ -78,6 +88,7 @@
 								<label>Zip</label> <input type="text" Value="TODO"
 									class="form-control" name="txtCode" />
 							</div>
+							-->
 						</div>
 						<div class="row">
 							<div class="col-sm-6 form-group">
@@ -102,19 +113,19 @@
 								name="txtEmail" />
 						</div>
 						<center>
-							<div>
+							<!-- <div>
 								<label class="checkbox-inline"> <input type="checkbox"
 									value="Auto">Auto Insurance
 								</label> <label class="checkbox-inline"> <input type="checkbox"
 									value="Property">Property Insurance
 								</label>
 							</div>
+							-->
 						</center>
 
 						<div>
 							<center>
-								<input type="submit" class="btn btn-lg btn-info"
-									value="REGISTER" /> 
+								<a href="CustomerRegistrationForm.jsp">Customer Registration</a>
 							</center>
 						</div>
 					</div>
