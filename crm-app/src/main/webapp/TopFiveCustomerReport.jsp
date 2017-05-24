@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
-<%@page language="java" import="java.util.*" %>
+
+<%@page language="java" import="java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -47,7 +47,8 @@
 						<span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-					<li><a href="TopFiveCustomerReportServlet">Top Five Customers</a></li>
+						<li><a href="TopFiveCustomerReportServlet">Top Five
+								Customers</a></li>
 						<!--<li><a href="ActiveProductsReportServlet">Active Products</a></li>-->
 						<li><a href="EnterCity.jsp">Customer By City</a></li>
 						<!--<li><a href="EnterProduct.jsp">Customer By Product</a></li>-->
@@ -75,9 +76,9 @@
 							<td width="12.5%">Email</td>
 							<td width="12.5%">Contact Number</td>
 							<td width="12.5%">Gender</td>
-							
-							
-							
+
+
+
 
 						</tr>
 						<%
@@ -93,7 +94,7 @@
 							<td width="12.5%"><%=itr.next()%></td>
 							<td width="12.5%"><%=itr.next()%></td>
 							<td width="12.5%"><%=itr.next()%></td>
-							
+
 						</tr>
 						<%} %>
 					</table>

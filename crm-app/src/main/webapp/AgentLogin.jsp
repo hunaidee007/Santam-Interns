@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Auto Coverage</title>
+<title>Agent Login</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="MyStyle.css">
 <link href='https://fonts.googleapis.com/css?family=Passion+One'
@@ -33,17 +33,10 @@
 				style="max-width: 100px; margin-top: -16px; margin-left: -16px; height: 52px;"
 				src="./img/Santam.PNG"></a>
 		</div>
-		
-		
+
+
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<!-- <li><a href="CustomerRegistrationForm.jsp">Customer
-						Registration</a></li>
-				 <li><a href="AutoCoverage.jsp">Auto Insurance</a></li>
-				<li><a href="InsuranceInquiryProperty.jsp">Property
-						Insurance</a></li>
-						
-				<li><a href="#">Reports</a></li>-->
 			</ul>
 		</div>
 	</div>
@@ -55,38 +48,37 @@
 	<div class="container">
 		<div class="col-lg-12 well">
 
-			<center>
+
 			<form action="AgentLogin" method="post">
-				
-				<table width ="75%">
-				
+				<center>
+					<table width="75%">
+
 						<tr>
 							<td>
-							<div class="col-sm-6 form-group">
-							<label>Username</label> <input type="text" name="txtUsername" placeholder="Enter Username" class="form-control" required>
-						</div>
-						</td>
+								<div class="col-sm-6 form-group">
+									<label>Username</label> <input type="text" name="txtUsername"
+										placeholder="Enter Username" class="form-control" required>
+								</div>
+							</td>
 						</tr>
-						
 						<tr>
 							<td>
-							<div class="col-sm-6 form-group">
-							<label>Password</label> <input type="password" name="txtPassword" placeholder="Enter Password" class="form-control" required>
-						</div>
-						</td>
+								<div class="col-sm-6 form-group">
+									<label>Password</label> <input type="password"
+										name="txtPassword" placeholder="Enter Password"
+										class="form-control" required>
+								</div>
+							</td>
 						</tr>
-
-
 						<tr>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-lg btn-info">Sign In</button></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;
+								<button type="submit" class="btn btn-lg btn-info">Sign
+									In</button>
+							</td>
 						</tr>
-
-
-
-				</table>
-											
+					</table>
+				</center>
 			</form>
-			</center>
 		</div>
 	</div>
 	<script

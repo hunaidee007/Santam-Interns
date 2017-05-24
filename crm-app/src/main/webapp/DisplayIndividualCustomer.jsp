@@ -42,7 +42,8 @@
 						<span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-					<li><a href="TopFiveCustomerReportServlet">Top Five Customers</a></li>
+						<li><a href="TopFiveCustomerReportServlet">Top Five
+								Customers</a></li>
 						<!--  <li><a href="ActiveProductsReportServlet">Active Products</a></li>-->
 						<li><a href="EnterCity.jsp">Customer By City</a></li>
 						<!--<li><a href="EnterProduct.jsp">Customer By Product</a></li>-->
@@ -89,31 +90,31 @@
 									class="form-control" name="txtCode" />
 							</div>
 							-->
+					</div>
+					<div class="row">
+						<div class="col-sm-6 form-group">
+							<label>Gender</label> <input type="text"
+								Value="<%=customer.getGender() %>" class="form-control"
+								name="txtGender" />
 						</div>
-						<div class="row">
-							<div class="col-sm-6 form-group">
-								<label>Gender</label> <input type="text"
-									Value="<%=customer.getGender() %>" class="form-control"
-									name="txtGender" />
-							</div>
-							<div class="col-sm-6 form-group">
-								<label>Identity Number</label> <input type="text"
-									Value="<%=customer.getIdNumber() %>" class="form-control"
-									name="txtID">
-							</div>
+						<div class="col-sm-6 form-group">
+							<label>Identity Number</label> <input type="text"
+								Value="<%=customer.getIdNumber() %>" class="form-control"
+								name="txtID">
 						</div>
-						<div class="form-group">
-							<label>Phone Number</label> <input type="text"
-								Value="<%=customer.getContactNo() %>" class="form-control"
-								name="txtPhoneNo" />
-						</div>
-						<div class="form-group">
-							<label>Email Address</label> <input type="text"
-								Value="<%=customer.getEmail() %>" class="form-control"
-								name="txtEmail" />
-						</div>
-						<center>
-							<!-- <div>
+					</div>
+					<div class="form-group">
+						<label>Phone Number</label> <input type="text"
+							Value="<%=customer.getContactNo() %>" class="form-control"
+							name="txtPhoneNo" />
+					</div>
+					<div class="form-group">
+						<label>Email Address</label> <input type="text"
+							Value="<%=customer.getEmail() %>" class="form-control"
+							name="txtEmail" />
+					</div>
+					<center>
+						<!-- <div>
 								<label class="checkbox-inline"> <input type="checkbox"
 									value="Auto">Auto Insurance
 								</label> <label class="checkbox-inline"> <input type="checkbox"
@@ -121,17 +122,17 @@
 								</label>
 							</div>
 							-->
-						</center>
+					</center>
 
-						<div>
-							<center>
-								<a href="CustomerRegistrationForm.jsp">Customer Registration</a>
-							</center>
-						</div>
+					<div>
+						<center>
+							<a href="CustomerRegistrationForm.jsp">Customer Registration</a>
+						</center>
 					</div>
-				</form>
 			</div>
+			</form>
 		</div>
+	</div>
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

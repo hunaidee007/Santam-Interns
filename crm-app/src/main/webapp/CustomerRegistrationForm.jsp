@@ -15,9 +15,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-<%
-	String agentUsername = (String) session.getAttribute("username");
-%>
+	<%
+		String agentUsername = (String) session.getAttribute("username");
+	%>
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -43,14 +43,14 @@
 						<span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-					<li><a href="TopFiveCustomerReportServlet">Top Five Customers</a></li>
+						<li><a href="TopFiveCustomerReportServlet">Top Five
+								Customers</a></li>
 						<!--  <li><a href="ActiveProductsReportServlet">Active Products</a></li>-->
 						<li><a href="EnterCity.jsp">Customer By City</a></li>
 						<!--<li><a href="EnterProduct.jsp">Customer By Product</a></li>-->
 					</ul></li>
-				<li><a href="AgentLogin.jsp">
-						Sign Out</a></li>
-						 
+				<li><a href="AgentLogin.jsp"> Sign Out</a></li>
+
 			</ul>
 		</div>
 	</div>
@@ -71,7 +71,8 @@
 				</form> -->
 				<!-- Search Form END##############################################################################################-->
 				<%
-					CustomerBean customer = (CustomerBean) session.getAttribute("customer");
+					CustomerBean customer = (CustomerBean) session
+							.getAttribute("customer");
 				%>
 				<form action="CustomerController" method="post">
 					<div class="col-sm-12">
@@ -133,16 +134,20 @@
 								name="txtEmail" />
 						</div>
 						<div class="col-sm-6 form-group">
-								<input type="hidden" name="agentUserN"
-									value="<%=agentUsername%>" class="form-control">
-							</div>
+							<input type="hidden" name="agentUserN" value="<%=agentUsername%>"
+								class="form-control">
+						</div>
 						<center>
-						<div class="row">
-							<div class="col-sm-4 form-group">
-								<label>Select Insurance Type </label> <br> 
-								<label class="radio-inline"> <input type="radio" name="insuranceType" value = "auto">Auto Insurance</label>
-								<label class="radio-inline"> <input type="radio" name="insuranceType" value = "property">Property Insurance</label>
-							</div> 
+							<div class="row">
+								<div class="col-sm-4 form-group">
+									<label>Select Insurance Type </label> <br> <label
+										class="radio-inline"> <input type="radio"
+										name="insuranceType" value="auto">Auto Insurance
+									</label> <label class="radio-inline"> <input type="radio"
+										name="insuranceType" value="property">Property
+										Insurance
+									</label>
+								</div>
 							</div>
 						</center>
 
