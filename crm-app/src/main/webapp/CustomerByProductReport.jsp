@@ -50,7 +50,7 @@
 					<li><a href="TopFiveCustomerReportServlet">Top Five Customers</a></li>
 						<!--  <li><a href="ActiveProductsReportServlet">Active Products</a></li>-->
 						<li><a href="EnterCity.jsp">Customer By City</a></li>
-						<li><a href="EnterProduct.jsp">Customer By Product</a></li>
+						<!--<li><a href="EnterProduct.jsp">Customer By Product</a></li>-->
 					</ul></li>
 
 			</ul>
